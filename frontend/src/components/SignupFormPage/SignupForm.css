@@ -1,0 +1,88 @@
+#signUpForm {
+    padding: 10px;
+    border-radius: 5%;
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 1px 1px;
+    background-color: antiquewhite;
+
+}
+
+#emailSignUpLabel {
+    width: calc(100% - 20%);
+    padding: 10px;
+    margin: 10px;
+    background: white;
+    box-shadow: 0 1px 1px #ccc;
+    border: white;
+    border-radius: 50px;
+    margin-bottom: -0.1px;
+}
+
+body {
+
+    background-color: rgb(250, 247, 247);
+    color: rgb(10, 10, 10);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--ntp-one-google-bar-height));
+    min-width: fit-content;
+    padding-top: var(--ntp-one-google-bar-height);
+    position: relative;
+    z-index: 1;
+}
+
+#usernameSignUpLabel {
+    width: calc(100% - 20%);
+    padding: 10px;
+    margin: 10px;
+    background: white;
+    box-shadow: 0 1px 1px #ccc;
+    border: white;
+    border-radius: 50px;
+}
+
+#passwordSignUpLabel {
+    width: calc(100% - 20%);
+    padding: 10px;
+    background: white;
+    box-shadow: 0 1px 1px #ccc;
+    border: white;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+#confirmPasswordSignUpLabel {
+    width: calc(100% - 20%);
+    padding: 10px;
+    background: white;
+    box-shadow: 0 1px 1px #ccc;
+    border: white;
+    border-radius: 50px;
+    margin-bottom: 15px;
+
+}
+
+#submitSignUpBtn {
+    width: calc(100% - 40%);
+    min-width: fit-content;
+    margin: 1em;
+    padding: 1em 2em;
+    border: white;
+    border-radius: 5px;
+    background: white;
+    color: black;
+    z-index: 1;
+    transition-duration: 1s;
+}
+
+#submitSignUpBtn:hover {
+    background-color: blue;
+    font-weight: bold;
+    color: white;
+}

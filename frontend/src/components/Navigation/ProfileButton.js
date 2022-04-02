@@ -31,6 +31,7 @@ function ProfileButton({ user }) {
     return (
         <>
             <button onClick={openMenu}>
+                Account
                 <i className="fas fa-user-circle" />
             </button>
             {showMenu && (

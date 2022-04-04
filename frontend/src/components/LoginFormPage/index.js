@@ -23,6 +23,10 @@ function LoginFormPage() {
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
+                else {
+                    res.redirect('/')
+                }
+
             });
     }
 
@@ -62,7 +66,7 @@ function LoginFormPage() {
             <p>
                 <NavLink to="/signup" >Don't have an account</NavLink>
             </p>
-            <form id='demoUserForm'>
+            <form id='demoUserForm' onSubmit={handleSubmit}>
                 <input
                     type='hidden'
                     value={password}

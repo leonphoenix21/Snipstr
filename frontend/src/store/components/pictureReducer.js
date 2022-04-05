@@ -1,91 +1,56 @@
-const LOAD_PICTURES = 'picture/loadPicture';
-const ADD_PICTURE = 'picture/addPicture';
-const LOAD = 'picture/LOAD';
+const ADD_PICTURE = 'picture/ADD';
 
-const loadPicture = (picture) => ({
-    type: LOAD,
+const addPicture = (picture) => ({
+    type: ADD_PICTURE,
     picture
-});
+})
 
-export const loadPictures = (pictures) => {
-    return {
-        type: LOAD_PICTURES,
-        pictures
-    };
-};
-
-export const addPicture = (picture) => {
-    return {
-        type: ADD_PICTURE,
-        picture
-    };
-};
-
-export const fetchPictures = () => async (dispatch) => {
-    const response = await fetch('/api/pictures');
-    const pictures = await response.json();
-    dispatch(loadPictures(pictures));
-};
-
-export const createPicture = (payload) => async (dispatch) => {
-    const response = await fetch('/api/pictures', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-
-    if (response.ok) {
-        const picture = await response.json();
-        dispatch(addPicture(picture));
-        return picture;
-    }
-};
-
-export const updatePicture = (data) => async (dispatch) => {
-    const response = await fetch(`/api/picture/${data.id}`, {
-        method: 'put',
+export const createPicture = (data) => async (dispatch) => {
+    const response = await fetch('/api/picture', {
+        method: 'post',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            "_csrf": `bgLWkA7tNOJzE7b0VUE-zrqc`
         },
         body: JSON.stringify(data)
     });
 
     if (response.ok) {
         const picture = await response.json();
-        dispatch(addPicture(picture));
-        // return picture;
+        dispatch(addPicture(picture))
     }
+}
+
+const initialState = {
+    list: []
 };
 
-const initialState = { entries: [], isLoading: true };
 const sortList = (list) => {
     return list
-        .sort((pictureA, pictureB) => {
-            return pictureA.no - pictureB.no;
+        .sort((A, B) => {
+            return A.no - B.no;
         })
         .map((picture) => picture.id);
 };
 
 const pictureReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD: {
-            const allPictures = {};
-            action.list.forEach((picture) => {
-                allPictures[picture.id] = picture;
-            });
-            return {
-                ...allPictures,
-                ...state,
-                list: sortList(action.list)
-            };
+        case ADD_PICTURE: {
+            if (!state[action.picture.id]) {
+                const newState = {
+                    ...state,
+                    [action.picture.id]: action.picture
+                };
+                const pictureList = newState.list.map(id => newState[id]);
+                pictureList.push(action.picture);
+                newState.list = sortList(pictureList)
+                return newState
+            }
         }
-        case LOAD_PICTURES:
-            return { ...state, entries: [...action.articles] };
-        case ADD_PICTURE:
-            return { ...state, entries: [...state.entries, action.article] };
         default:
             return state;
-    }
-};
 
-export default pictureReducer;
+    }
+}
+
+export default pictureReducer

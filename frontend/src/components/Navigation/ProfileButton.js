@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import { Route } from 'react-router-dom';
+import LoginFormPage from "../LoginFormPage";
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -26,6 +28,9 @@ function ProfileButton({ user }) {
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
+        <Route >
+            <LoginFormPage />
+        </Route>
     };
 
     return (

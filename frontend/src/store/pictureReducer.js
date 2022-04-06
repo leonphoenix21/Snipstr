@@ -16,7 +16,7 @@ export const loadPictures = (picture) => {
     };
 };
 
-// Create Pictures in the DataBase
+//! Create Pictures in the DataBase
 export const createPicture = (data) => async (dispatch) => {
     const { name, url, user_id } = data
     const response = await csrfFetch('/api/picture', {
@@ -37,7 +37,7 @@ export const createPicture = (data) => async (dispatch) => {
 
 }
 
-// Get Pictures from the Database
+//! Get Pictures from the Database
 export const getPictures = () => async (dispatch) => {
     const response = await fetch('/api/picture');
     if (response.ok) {
@@ -50,13 +50,23 @@ const initialState = {
     list: []
 };
 
-// const sortList = (list) => {
-//     return list
-//         .sort((A, B) => {
-//             return A.no - B.no;
-//         })
-//         .map((picture) => picture.id);
-// };
+
+//! Edit/Update Pictures from the db
+export const editPicture = (data) => async (dispatch) => {
+    const response = await csrfFetch(`api/picture/${data.id}`, {
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const picture = await response.json();
+        dispatch(addPicture(picture));
+        return picture;
+    }
+}
 
 const pictureReducer = (state = initialState, action) => {
 
@@ -70,7 +80,7 @@ const pictureReducer = (state = initialState, action) => {
                 const pictureList = state.list.map(id => newState[id]);
                 pictureList.push(action.picture);
                 newState.list.push(pictureList)
-                // newState.list = sortList(pictureList)
+
                 console.log('bbbbbbbbbbb', newState.list)
                 return newState = {
                     ...newState,
@@ -79,20 +89,7 @@ const pictureReducer = (state = initialState, action) => {
             }
         }
         case LOAD_PICTURES: {
-
             return { ...state, list: [...action.picture] };
-            // let newState = {};
-            // // console.log("naaaa", newState.list)
-            // action.picture.forEach((picture) => {
-            //     newState[picture.id] = picture;
-            // });
-            // newState.list.push(...newState)
-            // console.log("naaaa", newState.list)
-
-            // return {
-            //     ...newState,
-            //     ...state,
-            // };
         }
 
         default:

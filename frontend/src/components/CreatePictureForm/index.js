@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createPicture } from '../../store/components/pictureReducer';
+import { createPicture } from '../../store/pictureReducer';
 import { useHistory } from 'react-router-dom';
 
 import './CreatePictureForm.css';
@@ -23,18 +23,14 @@ const UploadImage = ({ user }) => {
         const newPicture = {
             name,
             url,
-            user_id,
+            user_id
             // album_id
         };
         console.log(newPicture)
         const picture = await dispatch(createPicture(newPicture));
-
-        if (picture) reset();
-        else {
-
-            console.log("Hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-            console.log("Hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
-            console.log(user.id)
+        if (picture) {
+            reset()
+            history.push(`/${user_id}`);
         }
 
     };
@@ -45,7 +41,7 @@ const UploadImage = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-        history.push(`/`);
+
         // setAlbum_id('')
     };
 
@@ -53,7 +49,7 @@ const UploadImage = ({ user }) => {
         <div className='inputBox' id='inputBox'>
             <h1>Upload Image</h1>
             <form onSubmit={handleSubmit} id='createPictureForm'>
-                <li>{user.username}</li>
+
                 <input
                     id='nameInput'
                     type='text'
@@ -72,7 +68,9 @@ const UploadImage = ({ user }) => {
                     required
                 />
                 <button
-                    onClick={(e) => setUser_id(user.id)}
+                    onClick={(e) => (
+                        setUser_id(user.id)
+                    )}
                     type='submit'>
                     Submit
                 </button>

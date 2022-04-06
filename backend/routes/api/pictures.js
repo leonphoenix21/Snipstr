@@ -1,7 +1,11 @@
-const router = require('express').Router();
+const express = require('express');
 const asyncHandler = require('express-async-handler');
-
+const router = require('express').Router();
+const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { Picture } = require('../../db/models');
+
+
+const { handleValidationErrors } = require('../../utils/validation')
 const { validateCreate, validateUpdate } = require('../validations/pictures')
 
 
@@ -10,7 +14,7 @@ router.get('/', asyncHandler(async (_req, res) => {
     res.json(pictures);
 }));
 
-router.post('/pictures', validateCreate, asyncHandler(async (req, res) => {
+router.post('/', asyncHandler(async (req, res) => {
     // console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
     // console.log(req.body)
     // const { name, url, user_id } = req.body;
@@ -23,7 +27,7 @@ router.post('/pictures', validateCreate, asyncHandler(async (req, res) => {
     // res.redirect('/application')
     const picture = await Picture.create(req.body);
     res.json(picture);
-    return res.redirect(`/pictures`)
+    // return res.redirect(`/`)
 }));
 
 router.put(

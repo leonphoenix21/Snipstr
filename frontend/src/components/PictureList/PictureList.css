@@ -1,0 +1,22 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#container>div {
+    /* background-color: #8ca0ff;
+    width: 50px;
+    height: 50px; */
+    align-items: center;
+    border: solid red 1px;
+    height: 400px;
+    width: 600px;
+}
+
+#imgDiv {
+    border: solid red 1px;
+    height: 400px;
+    width: 600px;
+}

@@ -6,6 +6,9 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LoginFormPage from "./components/LoginFormPage";
 import ApplicationPage from './components/CreatePictureForm'
+// import Picture from '../../backend/db/models';
+import SinglePicture from "./components/SinglePicture";
+import PictureList from "./components/PictureList";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +34,8 @@ function App() {
             <Route
               path={["/", "/pictures", "/picture/:picture_id"]}>
               <ApplicationPage user={sessionUser} />
+              <PictureList />
+              <SinglePicture user={sessionUser} />
             </Route> : // or statement
             <Route >
               <LoginFormPage />

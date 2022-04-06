@@ -22,13 +22,19 @@ const PictureList = () => {
                         {picture.name}
                         {/* <NavLink to={`/picture/${picture.id}`}> {picture.name} </NavLink> */}
 
-                        {if picture.url}
+                        {/* {if picture.url} */}
                         <img
                             src={picture?.url}
                             alt={picture?.name}
                             width={550}
                             height={350}
+                            id='img'
                         />
+                        <div id='editbtnDiv'>
+                            <button id='editPicturebtn' >
+                                Edit
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>

@@ -26,15 +26,6 @@ function LoginFormPage() {
             });
     }
 
-    const demoUserSubmit = (e) => {
-        e.preventDefault();
-        setErrors([]);
-        return dispatch(sessionActions.login({ credential, password }))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
-    }
 
     return (
         <form onSubmit={handleSubmit} id='logInForm'>
@@ -62,21 +53,17 @@ function LoginFormPage() {
             <p>
                 <NavLink to="/signup" >Don't have an account</NavLink>
             </p>
-            <form id='demoUserForm' onSubmit={handleSubmit}>
-                <input
-                    type='hidden'
-                    value={password}
-                    onChange={(e) => setCredential('Demo-lition')} // this line needs to be refactored for completion
-                    required
-                />
-                <input
-                    type='hidden'
-                    value={credential}
-                    onChange={(e) => setPassword('password')} // this line needs to be refactored for completion
-                    required
-                />
-                <button type="submit" id='demoUserBtn'>Demo User</button>
-            </form>
+
+            <button
+                type="submit"
+                id='demoUserBtn'
+                onClick={(e) => (
+                    setPassword('password'),
+                    setCredential('Demo-lition')
+                )}>
+
+                Demo User
+            </button>
         </form >
     );
 }

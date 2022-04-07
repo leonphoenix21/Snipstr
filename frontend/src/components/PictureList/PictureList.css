@@ -1,5 +1,5 @@
 #imgDiv {
-    margin-top: ;
+
     padding: 10px;
     padding-bottom: 100px;
     /* height: 400px;
@@ -24,7 +24,7 @@ img {
 
 .all {
     border: solid 1px black;
-    background-color: antiquewhite;
+    background-color: white;
     --text-visibility: hidden;
 }
 

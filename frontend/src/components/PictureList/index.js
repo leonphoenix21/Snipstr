@@ -10,7 +10,7 @@ const PictureList = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
-    const [isShown, setIsShown] = useState(false);
+    const [isShown, setIsShown] = useState({ visibility: 'hidden' });
 
     //!Date conversion
     const getDate = (date) => {
@@ -43,17 +43,18 @@ const PictureList = () => {
                                     alt={picture?.name}
                                     width={550}
                                     height={350}
-                                    onMouseOver={() => setIsShown(true)}
-                                    onMouseLeave={() => setIsShown(false)}
+                                    onMouseOver={() => setIsShown({ visibility: '' })}
+                                    onMouseLeave={() => setIsShown({ visibility: 'hidden' })}
                                 />
                             </NavLink>
 
                         </div>
-                        {isShown ?
-                            <div>
-                                {picture.createdAt}
-                            </div> : null
-                        }
+                        <div id='createdAt'
+                            style={isShown}
+                        >
+                            {picture.createdAt}
+                        </div>
+
                     </div>
                 ))}
 

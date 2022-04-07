@@ -22,4 +22,6 @@ img:hover {}
     background-color: antiquewhite;
 }
 
-body {}
+#createdAt {
+    font-size: 20px;
+}

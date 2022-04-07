@@ -27,6 +27,7 @@ function Navigation({ isLoaded }) {
     return (
         <div id='navbardiv'>
             <NavLink exact to="/">Home</NavLink>
+            <NavLink exact to="/pictures"> Upload </NavLink>
             {isLoaded && sessionLinks}
         </div>
     );

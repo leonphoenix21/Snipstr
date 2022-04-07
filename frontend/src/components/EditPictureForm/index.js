@@ -1,34 +1,61 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editPicture } from '../../store/pictureReducer';
+import { editPicture, deletePicture } from '../../store/pictureReducer';
+import { useHistory, useParams } from 'react-router-dom';
 
-
-const EditPictureForm = ({ picture, hideForm, user }) => {
+const EditPictureForm = ({ user }) => {
     const dispatch = useDispatch();
-
+    const history = useHistory();
+    const picture = useSelector(state => state.picture.list)
+    const { id } = useParams();
+    console.log("idddddd", id)
     const [name, setName] = useState(picture.name);
     const [url, setUrl] = useState(picture.url);
-    const [user_id, setUser_id] = useState('');
+    const [user_id, setUser_id] = useState(user.id);
+    const [picture_id, setPicture_id] = useState(id);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const payload = {
+            id,
             name,
-            url
+            url,
+            user_id
         }
-        const picture = await dispatch(editPicture(payload));
-        if (picture) {
-            hideForm();
+        // console.log("payload", payload)
+        history.push('/')
+        const pictures = await dispatch(editPicture(payload));
+        console.log("pics", pictures)
+        if (pictures) {
+            reset()
         }
     }
-
-    const handleCancelClick = (e) => {
+    const DeleteSubmit = async (e) => {
         e.preventDefault();
-        hideForm();
+
+        const payload = {
+            id
+        }
+        console.log("payload", payload.id)
+        await dispatch(deletePicture(payload.id));
+        history.push('/');
+        reset();
+
+    }
+
+
+    const reset = () => {
+        setName('');
+        setUrl('');
+        setUser_id('');
+        history.push('/')
+        // setAlbum_id('')
     };
 
+
     return (
-        <section>
+        <div id='createPictureForm'>
             <form onSubmit={handleSubmit} id='createPictureForm'>
                 <input
                     id='nameInput'
@@ -49,14 +76,22 @@ const EditPictureForm = ({ picture, hideForm, user }) => {
                 />
                 <button
                     onClick={(e) => (
-                        setUser_id(user.id)
+                        setUser_id(user.id),
+                        setPicture_id(user.id)
                     )}
                     type='submit'>
                     Submit
                 </button>
-                <button type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
-        </section>
+            <form onSubmit={DeleteSubmit} id='deletePictureForm'>
+                <button
+                    type='submit'>
+                    Delete
+                </button>
+            </form>
+        </div>
     )
 
 }
+
+export default EditPictureForm;

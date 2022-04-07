@@ -5,10 +5,10 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LoginFormPage from "./components/LoginFormPage";
-import ApplicationPage from './components/CreatePictureForm'
-// import Picture from '../../backend/db/models';
+import CreatePictureForm from './components/CreatePictureForm'
 import SinglePicture from "./components/SinglePicture";
 import PictureList from "./components/PictureList";
+import EditPictureForm from "./components/EditPictureForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,29 +18,39 @@ function App() {
   }, [dispatch]);
 
   const sessionUser = useSelector(state => state.session.user);
+  const pictures = useSelector(state => state.picture)
 
   return (
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          <Route path="/signup">
+          <Route exact path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
           {sessionUser ?
             <Route
-              path={["/", "/pictures", "/picture/:picture_id"]}>
-              <ApplicationPage user={sessionUser} />
-              <PictureList />
-              <SinglePicture user={sessionUser} />
+              exact path={"/pictures"}>
+              <CreatePictureForm user={sessionUser} />
             </Route> : // or statement
             <Route >
               <LoginFormPage />
             </Route>
           }
+          <Route exact path={'/'}>
+            <PictureList />
+          </Route>
+          <Route path='/picture/:id'>
+            <SinglePicture user={sessionUser} />
+            <EditPictureForm user={sessionUser} />
+          </Route>
+          <Route>
+            <h1> Page Not Found</h1>
+          </Route>
+
         </Switch>
       )}
     </>

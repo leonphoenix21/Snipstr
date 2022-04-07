@@ -1,12 +1,14 @@
 import { csrfFetch } from './csrf';
 
 const ADD_PICTURE = 'picture/ADD';
-const LOAD_PICTURES = 'picture/LOAD'
+const LOAD_PICTURES = 'picture/LOAD';
+const DELETE_PICTURE = 'picture/DELETE';
 
-const addPicture = (picture) => ({
+export const addPicture = (picture) => ({
     type: ADD_PICTURE,
     picture
 })
+
 
 
 export const loadPictures = (picture) => {
@@ -14,6 +16,13 @@ export const loadPictures = (picture) => {
         type: LOAD_PICTURES,
         picture
     };
+};
+
+export const deletePic = (pictureId) => {
+    return {
+        type: DELETE_PICTURE,
+        pictureId
+    }
 };
 
 //! Create Pictures in the DataBase
@@ -34,7 +43,6 @@ export const createPicture = (data) => async (dispatch) => {
         return (picture)
     }
 
-
 }
 
 //! Get Pictures from the Database
@@ -48,25 +56,36 @@ export const getPictures = () => async (dispatch) => {
 
 const initialState = {
     list: []
+
 };
 
 
 //! Edit/Update Pictures from the db
 export const editPicture = (data) => async (dispatch) => {
+
     const response = await csrfFetch(`api/picture/${data.id}`, {
-        method: 'put',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        method: 'PUT',
         body: JSON.stringify(data)
     });
-
+    console.log("response", response.body)
     if (response.ok) {
         const picture = await response.json();
         dispatch(addPicture(picture));
         return picture;
     }
 }
+
+//!Delete Picture from the db
+export const deletePicture = (pictureId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/picture/${pictureId}`, {
+        method: 'delete'
+    });
+    if (response.ok) {
+        const picture = await response.json();
+        dispatch(deletePic(pictureId));
+        return pictureId
+    }
+};
 
 const pictureReducer = (state = initialState, action) => {
 
@@ -91,7 +110,14 @@ const pictureReducer = (state = initialState, action) => {
         case LOAD_PICTURES: {
             return { ...state, list: [...action.picture] };
         }
-
+        case DELETE_PICTURE: {
+            const newState = { ...state };
+            delete newState[action.pictureId]
+            return newState = {
+                ...newState,
+                ...state
+            }
+        }
         default:
             return state;
 

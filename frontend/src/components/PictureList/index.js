@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Switch, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getPictures } from '../../store/pictureReducer';
 import SinglePicture from '../SinglePicture/index'
 import './PictureList.css'
-
 const PictureList = () => {
     const dispatch = useDispatch();
     const pictures = useSelector(state => state.picture.list)
@@ -12,6 +11,8 @@ const PictureList = () => {
     useEffect(() => {
         dispatch(getPictures());
     }, [dispatch]);
+    const sessionUser = useSelector(state => state.session.user);
+    // const userPictures
 
     return (
         <>
@@ -30,21 +31,10 @@ const PictureList = () => {
                                 height={350}
                                 id='img'
                             />
-                            <div id='editImgDiv'>
-                                <form>
-                                    <button id='editPicturebtn' >
-                                        Edit
-                                    </button>
-                                </form>
-                            </div>
                         </NavLink>
-                        <Switch>
-                            <Route path='/picture/:id'>
-                                {/* <SinglePicture pictures={pictures} /> */}
-                            </Route>
-                        </Switch>
                     </div>
                 ))}
+
             </div>
         </>
     )

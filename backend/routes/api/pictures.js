@@ -15,16 +15,7 @@ router.get('/', asyncHandler(async (_req, res) => {
 }));
 
 router.post('/', asyncHandler(async (req, res) => {
-    // console.log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH')
-    // console.log(req.body)
-    // const { name, url, user_id } = req.body;
-    // const picture = await Picture.build({
-    //     name,
-    //     url,
-    //     user_id
-    // })
-    // await picture.save();
-    // res.redirect('/application')
+
     const picture = await Picture.create(req.body);
     res.json(picture);
     // return res.redirect(`/`)
@@ -32,16 +23,28 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.put(
     "/:id",
-    validateUpdate,
     asyncHandler(async function (req, res) {
-        const picture = await Picture.updateItem(req.body);
-        return res.json(picture);
+        const picture = req.body
+        const id = picture.id;
+        delete picture.id;
+        console.log({ picture, id });
+        await Picture.update(
+            picture,
+            {
+                where: { id },
+                returning: true,
+                plain: true
+            }
+        );
+
+        return await Picture.findByPk(id)
     })
 );
 
 router.delete("/:id", asyncHandler(async function (req, res) {
-    const picture_id = await Picture.deleteItem(req.params.id);
-    return res.json({ picture_id });
+    const id = req.params.id;
+    await Picture.destroy({ where: { id } });
+
 }));
 
 

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { createPicture } from '../../store/pictureReducer';
 import { useHistory } from 'react-router-dom';
 
+
 import './CreatePictureForm.css';
 
 const UploadImage = ({ user }) => {
@@ -30,7 +31,6 @@ const UploadImage = ({ user }) => {
         const picture = await dispatch(createPicture(newPicture));
         if (picture) {
             reset()
-            history.push(`/${user_id}`);
         }
 
     };
@@ -41,7 +41,6 @@ const UploadImage = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-
         // setAlbum_id('')
     };
 

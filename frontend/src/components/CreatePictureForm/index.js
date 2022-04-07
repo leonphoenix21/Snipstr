@@ -35,12 +35,11 @@ const UploadImage = ({ user }) => {
 
     };
 
-
-
     const reset = () => {
         setName('');
         setUrl('');
         setUser_id('');
+        history.push('/')
         // setAlbum_id('')
     };
 

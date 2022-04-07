@@ -43,7 +43,7 @@
     background: white;
     color: black;
     z-index: 1;
-    transition-duration: 1s;
+    transition-duration: 2s;
 }
 
 #loginBtn:hover {

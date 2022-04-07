@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/leonphoenix21/Snipstr/issues"
   },
-  "homepage": "https://github.com/leonphoenix21/Snipstr#readme"
+  "homepage": "https://github.com/leonphoenix21/Snipstr#readme",
+  "dependencies": {
+    "react-native": "^0.68.0"
+  }
 }

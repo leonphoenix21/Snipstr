@@ -111,7 +111,7 @@ const pictureReducer = (state = initialState, action) => {
             return { ...state, list: [...action.picture] };
         }
         case DELETE_PICTURE: {
-            const newState = { ...state };
+            let newState = { ...state };
             delete newState[action.pictureId]
             return newState = {
                 ...newState,

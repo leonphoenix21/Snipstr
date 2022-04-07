@@ -44,7 +44,7 @@ router.put(
 router.delete("/:id", asyncHandler(async function (req, res) {
     const id = req.params.id;
     await Picture.destroy({ where: { id } });
-
+    res.json({ Picture })
 }));
 
 

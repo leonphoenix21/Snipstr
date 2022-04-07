@@ -1,9 +1,12 @@
 #imgDiv {
+    margin-top: ;
     padding: 10px;
     padding-bottom: 100px;
     /* height: 400px;
     width: 600px; */
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
     flex-direction: column;
     font-size: 30px;
     transition-duration: 3s;
@@ -13,15 +16,23 @@
     padding-bottom: 10px;
 }
 
-img:hover {}
+img {
+    width: 100%;
 
-
-#all {
-    border: solid 1px black;
-    margin-bottom: 15px;
-    background-color: antiquewhite;
 }
 
-#createdAt {
+
+.all {
+    border: solid 1px black;
+    background-color: antiquewhite;
+    --text-visibility: hidden;
+}
+
+.all:hover {
+    --text-visibility: visible;
+}
+
+.createdAt {
     font-size: 20px;
+    visibility: var(--text-visibility);
 }

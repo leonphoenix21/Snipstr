@@ -6,7 +6,6 @@ import { View, Text } from 'react';
 import { getPictures } from '../../store/pictureReducer';
 import './PictureList.css'
 const PictureList = () => {
-    let pictuer;
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
@@ -32,25 +31,22 @@ const PictureList = () => {
             {/* <thead> </thead> */}
             <div id='imgDiv'>
                 {pictures.map(picture => (
-
-                    <div id='all'>
+                    <div className='all'>
                         {picture.name}
-                        <div key={picture.id} id='NavDiv'>
+                        <div key={picture.id} className='NavDiv'>
                             <NavLink to={`/picture/${picture.id}`} id='imgNavlink'>
                                 <img
                                     placeholder={picture.name}
                                     src={picture?.url}
                                     alt={picture?.name}
-                                    width={550}
-                                    height={350}
-                                    onMouseOver={() => setIsShown({ visibility: '' })}
-                                    onMouseLeave={() => setIsShown({ visibility: 'hidden' })}
+                                // onMouseOver={(e) => {
+                                //     setIsShown({ visibility: '' })
+                                // }}
+                                // onMouseLeave={() => setIsShown({ visibility: 'hidden' })}
                                 />
                             </NavLink>
-
                         </div>
-                        <div id='createdAt'
-                            style={isShown}
+                        <div className='createdAt'
                         >
                             {picture.createdAt}
                         </div>

@@ -15,7 +15,6 @@ router.get('/', asyncHandler(async (_req, res) => {
 }));
 
 router.post('/', asyncHandler(async (req, res) => {
-
     const picture = await Picture.create(req.body);
     res.json(picture);
     // return res.redirect(`/`)

@@ -7,3 +7,18 @@
 #navbarLinks {
     background-color: red;
 }
+
+.pictureNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: solid black 2px;
+}
+
+.pictureNav>* {
+    padding: 20px;
+}
+
+.profileButton {
+    padding-left: 500px;
+}

@@ -11,16 +11,21 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <>
-                <ProfileButton user={sessionUser} />
-                <NavLink exact to="/pictures"> Upload </NavLink>
-                <NavLink exact to="/albums"> Create Album </NavLink>
-                <NavLink exact to="/albumlist"> Album List </NavLink>
+                <div className='pictureNav'>
+                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink exact to="/pictures"> Upload </NavLink>
+                    <NavLink exact to="/albums"> Create Album </NavLink>
+                    <NavLink exact to="/albumlist"> Album List </NavLink>
+                    <div className='profileButton'>
+                        <ProfileButton user={sessionUser} />
+                    </div>
+                </div>
             </>
         );
     } else {
         sessionLinks = (
             <>
-                <div id='navbarLinks'>
+                <div id='navbarLinks' className='pictureNav'>
                     <NavLink to="/login">Log In</NavLink>
                     <NavLink to="/signup">Sign Up</NavLink>
                 </div>
@@ -29,10 +34,21 @@ function Navigation({ isLoaded }) {
     }
 
     return (
-        <div id='navbardiv'>
-            <NavLink exact to="/">Home</NavLink>
+        <div>
+            {!sessionUser ?
+                <>
+                    <div id='navbardiv' >
+                        <NavLink exact to="/"> Home </NavLink>
+                        <NavLink to="/login">Log In</NavLink>
+                        <NavLink to="/signup">Sign Up</NavLink>
+                    </div>
 
-            {isLoaded && sessionLinks}
+                </>
+                : <div >
+                    {isLoaded && sessionLinks}
+                </div>
+            }
+
         </div>
     );
 }

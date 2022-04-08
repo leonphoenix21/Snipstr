@@ -43,7 +43,10 @@ const PictureList = () => {
     return (
         <>
             <div className='HomePageImg'>
-
+                <img src='https://live.staticflickr.com/65535/51986459249_ee5d51af98_h.jpg'
+                    alt=''
+                    className='HomePageImg'
+                    style={{ width: '100%' }} />
             </div>
             <h1 id='pictureH1'> Explore </h1>
             <nav className='pictureNav'>
@@ -66,7 +69,7 @@ const PictureList = () => {
                             >
                                 <div className='insideOverlay'>
                                     <div className='image-title'>{picture.name}  </div>
-                                    <div className='image-date'>{picture.createdAt}</div>
+                                    <div className='image-date'> {picture.createdAt.slice(0, 10)}</div>
                                 </div>
                             </div>
                         </div>

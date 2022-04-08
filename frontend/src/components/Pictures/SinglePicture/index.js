@@ -1,6 +1,6 @@
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPictures } from '../../store/pictureReducer';
+import { getPictures } from '../../../store/pictureReducer';
 import { useEffect } from 'react';
 
 

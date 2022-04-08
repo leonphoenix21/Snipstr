@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { editPicture, deletePicture } from '../../store/pictureReducer';
+import { editPicture, deletePicture } from '../../../store/pictureReducer';
 import { useHistory, useParams } from 'react-router-dom';
 
 const EditPictureForm = ({ user }) => {

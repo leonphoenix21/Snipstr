@@ -27,14 +27,9 @@ export const deletePic = (pictureId) => {
 
 //! Create Pictures in the DataBase
 export const createPicture = (data) => async (dispatch) => {
-    const { name, url, user_id } = data
     const response = await csrfFetch('/api/picture', {
         method: 'post',
-        body: JSON.stringify({
-            name,
-            url,
-            user_id
-        })
+        body: JSON.stringify(data)
     });
 
     if (response.ok) {
@@ -54,10 +49,7 @@ export const getPictures = () => async (dispatch) => {
     }
 };
 
-const initialState = {
-    list: []
 
-};
 
 
 //! Edit/Update Pictures from the db
@@ -81,16 +73,22 @@ export const deletePicture = (pictureId) => async (dispatch) => {
         method: 'delete'
     });
     if (response.ok) {
-        const picture = await response.json();
+        await response.json();
         dispatch(deletePic(pictureId));
         return pictureId
     }
 };
 
+const initialState = {
+    list: []
+};
 const pictureReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case ADD_PICTURE: {
+        case ADD_PICTURE:
+            let newState = {
+                ...state,
+            };
             if (!state[action.picture.id]) {
                 let newState = {
                     ...state,
@@ -99,14 +97,11 @@ const pictureReducer = (state = initialState, action) => {
                 const pictureList = state.list.map(id => newState[id]);
                 pictureList.push(action.picture);
                 newState.list.push(pictureList)
-
-                console.log('bbbbbbbbbbb', newState.list)
-                return newState = {
-                    ...newState,
-                    ...state
-                }
             }
-        }
+            return newState = {
+                ...newState,
+                ...state
+            }
         case LOAD_PICTURES: {
             return { ...state, list: [...action.picture] };
         }
@@ -124,4 +119,4 @@ const pictureReducer = (state = initialState, action) => {
     }
 }
 
-export default pictureReducer
+export default pictureReducer;

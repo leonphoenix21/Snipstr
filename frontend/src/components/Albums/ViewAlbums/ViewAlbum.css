@@ -26,10 +26,12 @@ img {
     border: solid 1px black;
     background-color: white;
     --text-visibility: hidden;
+    --name-visibility: hidden;
 }
 
 .all:hover {
     --text-visibility: visible;
+    --name-visibility: visible;
 }
 
 .createdAt {

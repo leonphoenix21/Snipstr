@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createPicture } from '../../store/pictureReducer';
+import { createPicture } from '../../../store/pictureReducer';
 import { useHistory } from 'react-router-dom';
 
 

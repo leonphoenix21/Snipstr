@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-// import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { View, Text } from 'react';
-import { getPictures } from '../../store/pictureReducer';
+import { getPictures } from '../../../store/pictureReducer';
 import './PictureList.css'
 const PictureList = () => {
     const dispatch = useDispatch();
@@ -12,23 +10,28 @@ const PictureList = () => {
     const [isShown, setIsShown] = useState({ visibility: 'hidden' });
 
     //!Date conversion
-    const getDate = (date) => {
-        let newDate = new Intl.DateTimeFormat('en-US', {
-            year: 'numeric', month: '2-digit',
-            day: '2-digit'
-        }).format(date)
-        return newDate;
-    }
+    // const getDate = (date) => {
+    //     let newDate = new Intl.DateTimeFormat('en-US', {
+    //         year: 'numeric', month: '2-digit',
+    //         day: '2-digit'
+    //     }).format(date)
+    //     return newDate;
+    // }
+
+    // const newFormat = pictures.map(picture => {
+    //     return getDate(picture.createdAt)
+    // })
+
+
 
     useEffect(() => {
         dispatch(getPictures());
     }, [dispatch]);
-    // const userPictures
+
 
     return (
         <>
             <h1> Pictures </h1>
-            {/* <thead> </thead> */}
             <div id='imgDiv'>
                 {pictures.map(picture => (
                     <div className='all'>
@@ -39,18 +42,14 @@ const PictureList = () => {
                                     placeholder={picture.name}
                                     src={picture?.url}
                                     alt={picture?.name}
-                                // onMouseOver={(e) => {
-                                //     setIsShown({ visibility: '' })
-                                // }}
-                                // onMouseLeave={() => setIsShown({ visibility: 'hidden' })}
                                 />
                             </NavLink>
                         </div>
-                        <div className='createdAt'
-                        >
+                        <div className='createdAt'>
+                            {sessionUser.name} <>
+                            </>
                             {picture.createdAt}
                         </div>
-
                     </div>
                 ))}
 

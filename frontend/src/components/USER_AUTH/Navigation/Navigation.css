@@ -15,10 +15,8 @@
     border-top: solid black 2px;
 }
 
-.pictureNav>* {
-    padding: 20px;
-}
 
-.profileButton {
-    padding-left: 500px;
+
+.profile {
+    padding-left: 300px;
 }

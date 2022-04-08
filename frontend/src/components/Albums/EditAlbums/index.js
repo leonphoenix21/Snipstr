@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editAlbums, deleteAlbums } from '../../../store/albumReducer';
 import { useHistory, useParams } from 'react-router-dom';
-
+import './EditAlbum.css'
 const EditAlbumForm = ({ user }) => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -49,13 +49,15 @@ const EditAlbumForm = ({ user }) => {
 
     return (
         <div id='createPictureForm'>
+            <h1>Edit Album</h1>
             <form onSubmit={handleSubmit} id='EditAlbumForm'>
+
                 <input
                     id='nameInput'
                     type='text'
                     onChange={(e) => setName(e.target.value)}
                     value={name}
-                    placeholder='Title'
+                    placeholder='Rename album here'
                     name='name'
                     required
                 />
@@ -63,7 +65,7 @@ const EditAlbumForm = ({ user }) => {
                     type='text'
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
-                    placeholder='Image URL'
+                    placeholder='Change Image url'
                     name='url'
                     required
                 />

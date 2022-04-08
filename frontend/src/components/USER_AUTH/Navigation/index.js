@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
                     <NavLink exact to="/pictures"> Upload </NavLink>
                     <NavLink exact to="/albums"> Create Album </NavLink>
                     <NavLink exact to="/albumlist"> Album List </NavLink>
-                    <div className='profileButton'>
+                    <div className='profile'>
                         <ProfileButton user={sessionUser} />
                     </div>
                 </div>

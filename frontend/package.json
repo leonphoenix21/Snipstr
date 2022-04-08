@@ -14,7 +14,9 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.1"
+    "redux-thunk": "^2.4.1",
+    "slick-carousel": "^1.8.1",
+    "slider": "^1.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

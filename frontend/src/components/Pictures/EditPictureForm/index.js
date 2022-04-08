@@ -12,7 +12,7 @@ const EditPictureForm = ({ user }) => {
     const [name, setName] = useState(picture.name);
     const [url, setUrl] = useState(picture.url);
     const [user_id, setUser_id] = useState(user.id);
-    const [picture_id, setPicture_id] = useState(id);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,10 +23,8 @@ const EditPictureForm = ({ user }) => {
             url,
             user_id
         }
-        // console.log("payload", payload)
         history.push('/')
         const pictures = await dispatch(editPicture(payload));
-        console.log("pics", pictures)
         if (pictures) {
             reset()
         }
@@ -39,7 +37,6 @@ const EditPictureForm = ({ user }) => {
         }
         console.log("payload", payload.id)
         await dispatch(deletePicture(payload.id));
-        history.push('/');
         reset();
 
     }
@@ -76,8 +73,7 @@ const EditPictureForm = ({ user }) => {
                 />
                 <button
                     onClick={(e) => (
-                        setUser_id(user.id),
-                        setPicture_id(user.id)
+                        setUser_id(user.id)
                     )}
                     type='submit'>
                     Submit

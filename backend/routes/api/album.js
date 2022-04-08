@@ -27,7 +27,7 @@ router.put(
         const id = album.id;
         delete album.id;
         console.log({ album, id });
-        await Albums.update(
+        const albumS = await Albums.update(
             album,
             {
                 where: { id },
@@ -35,8 +35,8 @@ router.put(
                 plain: true
             }
         );
-
-        return await Albums.findByPk(id)
+        res.json(albumS);
+        // return await Albums.findByPk(id)
     })
 );
 

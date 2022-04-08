@@ -11,6 +11,7 @@ import PictureList from "./components/Pictures/PictureList";
 import EditPictureForm from "./components/Pictures/EditPictureForm";
 import CreateAlbumForm from "./components/Albums/CreateAlbums";
 import ViewAlbumList from "./components/Albums/ViewAlbums";
+import EditAlbumForm from "./components/Albums/EditAlbums";
 
 
 
@@ -26,7 +27,6 @@ function App() {
   }, [dispatch]);
 
   const sessionUser = useSelector(state => state.session.user);
-  const pictures = useSelector(state => state.picture)
 
   return (
     <>
@@ -58,8 +58,7 @@ function App() {
             <ViewAlbumList user={sessionUser} />
           </Route>
           <Route path='/albums/:id'>
-            <SinglePicture user={sessionUser} />
-            <EditPictureForm user={sessionUser} />
+            <EditAlbumForm user={sessionUser} />
           </Route>
           {sessionUser ?
             <Route exact path={"/albums"}>

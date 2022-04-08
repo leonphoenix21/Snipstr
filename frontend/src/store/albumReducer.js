@@ -5,22 +5,22 @@ const LOAD_ALBUM = 'album/LOAD_';
 const DELETE_ALBUM = 'album/ADD';
 const EDIT_ALBUM = 'album/EDIT';
 
-export const loadAlbum = (album) => ({
+const loadAlbum = (album) => ({
     type: LOAD_ALBUM,
     album
 });
 
-export const editAlbum = (album) => ({
+const editAlbum = (album) => ({
     type: EDIT_ALBUM,
     album
 });
 
-export const addAlbum = (album) => ({
+const addAlbum = (album) => ({
     type: ADD_ONE,
     album
 });
 
-export const deleteAlbum = (album) => ({
+const deleteAlbum = (album) => ({
     type: DELETE_ALBUM,
     album
 })
@@ -51,7 +51,7 @@ export const getAlbums = () => async (dispatch) => {
     }
 };
 
-//! Edit/Update Pictures from the db
+//! Edit/Update Albums from the db
 export const editAlbums = (data) => async (dispatch) => {
     const response = await csrfFetch(`api/albums/${data.id}`, {
         method: 'PUT',
@@ -60,18 +60,18 @@ export const editAlbums = (data) => async (dispatch) => {
     console.log("response", response.body)
     if (response.ok) {
         const album = await response.json();
-        dispatch(addAlbum(album));
+        dispatch(editAlbum(album));
         return album;
     }
 }
 
 //!Delete Picture from the db
 export const deleteAlbums = (albumId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/picture/${albumId}`, {
+    const response = await csrfFetch(`/api/albums/${albumId}`, {
         method: 'delete'
     });
     if (response.ok) {
-        const album = await response.json();
+        await response.json();
         dispatch(deleteAlbum(albumId));
         return albumId
     }

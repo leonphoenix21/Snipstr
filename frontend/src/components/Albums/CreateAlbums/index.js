@@ -34,7 +34,7 @@ const CreateAlbumForm = ({ user }) => {
     };
     return (
         <div className='AlbumDiv'>
-            <h1>Upload Image</h1>
+            <h1>Create Album</h1>
             <form onSubmit={handleSubmit} className='createAlbumForm'>
                 <input
                     id='nameInput'

@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   Albums.associate = function (models) {
     // associations can be defined here
     Albums.belongsTo(models.User, { foreignKey: 'user_id' })
-    Albums.hasMany(models.Picture, { foreignKey: 'album_id' })
+    Albums.hasMany(models.Picture, { foreignKey: 'album_id', onDelete: 'cascade', hooks: true })
   };
   return Albums;
 };

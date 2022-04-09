@@ -12,6 +12,7 @@ import EditPictureForm from "./components/Pictures/EditPictureForm";
 import CreateAlbumForm from "./components/Albums/CreateAlbums";
 import ViewAlbumList from "./components/Albums/ViewAlbums";
 import EditAlbumForm from "./components/Albums/EditAlbums";
+import AlbumPictures from "./components/Albums/AlbumPictures";
 
 
 
@@ -58,6 +59,7 @@ function App() {
             <ViewAlbumList user={sessionUser} />
           </Route>
           <Route path='/albums/:id'>
+            <AlbumPictures user={sessionUser} />
             <EditAlbumForm user={sessionUser} />
           </Route>
           {sessionUser ?

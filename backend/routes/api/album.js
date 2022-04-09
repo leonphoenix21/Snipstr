@@ -40,10 +40,11 @@ router.put(
     })
 );
 
-router.delete("/:id", asyncHandler(async function (req, res) {
+router.delete("/delete/:id", asyncHandler(async function (req, res) {
     const id = req.params.id;
-    await Albums.destroy({ where: { id } });
+    const deleteAlbum = await Albums.findByPk(id)
     res.json({ Albums })
+    return await deleteAlbum.destroy();
 }));
 
 

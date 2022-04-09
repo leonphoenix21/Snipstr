@@ -13,6 +13,10 @@ const EditAlbumForm = ({ user }) => {
     const [url, setUrl] = useState(album.url);
     const [user_id, setUser_id] = useState(user.id);
 
+    const sessionUser = useSelector(state => state.session.user);
+    const albums = useSelector(state => state.album.list);
+    const pict = albums.filter(pic => pic.id === +id)
+    const verify = pict.map(pic => pic.user_id === +sessionUser.id)
 
     //!Submit for the edit album fomr
     const handleSubmit = async (e) => {
@@ -34,7 +38,7 @@ const EditAlbumForm = ({ user }) => {
         const payload = {
             id
         }
-        history.push('/albumlist')
+        history.push('/')
         await dispatch(deleteAlbums(payload.id));
         reset();
     }
@@ -44,45 +48,50 @@ const EditAlbumForm = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-        history.push('/albumlist')
+        history.push('/')
     };
 
     return (
         <div id='createPictureForm'>
-            <h1>Edit Album</h1>
-            <form onSubmit={handleSubmit} id='EditAlbumForm'>
+            {verify ?
+                <>
+                    <h1>Edit Album</h1>
+                    <form onSubmit={handleSubmit} id='EditAlbumForm'>
 
-                <input
-                    id='nameInput'
-                    type='text'
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                    placeholder='Rename album here'
-                    name='name'
-                    required
-                />
-                <input
-                    type='text'
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder='Change Image url'
-                    name='url'
-                    required
-                />
-                <button
-                    onClick={(e) => (
-                        setUser_id(user.id)
-                    )}
-                    type='submit'>
-                    Submit
-                </button>
-            </form>
-            <form onSubmit={DeleteSubmit} id='deleteAlbumForm'>
-                <button
-                    type='submit'>
-                    Delete
-                </button>
-            </form>
+                        <input
+                            id='nameInput'
+                            type='text'
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            placeholder='Rename album here'
+                            name='name'
+                            required
+                        />
+                        <input
+                            type='text'
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                            placeholder='Change Image url'
+                            name='url'
+                            required
+                        />
+                        <button
+                            onClick={(e) => (
+                                setUser_id(user.id)
+                            )}
+                            type='submit'>
+                            Submit
+                        </button>
+                    </form>
+                    <form onSubmit={DeleteSubmit} id='deleteAlbumForm'>
+                        <button
+                            type='submit'>
+                            Delete
+                        </button>
+                    </form>
+                </>
+                : null}
+
         </div>
     )
 

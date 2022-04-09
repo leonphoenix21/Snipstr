@@ -12,9 +12,6 @@ const PictureList = () => {
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
 
-
-
-
     const navLink = (id) => {
         history.push(`/picture/${id}`)
     }

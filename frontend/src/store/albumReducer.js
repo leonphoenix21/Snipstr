@@ -67,7 +67,7 @@ export const editAlbums = (data) => async (dispatch) => {
 
 //!Delete Picture from the db
 export const deleteAlbums = (albumId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/albums/${albumId}`, {
+    const response = await csrfFetch(`/api/albums/delete/${albumId}`, {
         method: 'delete'
     });
     if (response.ok) {

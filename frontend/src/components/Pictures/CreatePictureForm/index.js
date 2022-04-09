@@ -17,7 +17,7 @@ const UploadImage = ({ user }) => {
     const [url, setUrl] = useState('');
     const [user_id, setUser_id] = useState('');
     const albumArr = []
-    const [album_id, setAlbum_id] = useState('');
+    const [album_id, setAlbum_id] = useState(null);
     const albums = useSelector(state => state.album.list);
     const sessionUser = useSelector(state => state.session.user);
     useEffect(() => {

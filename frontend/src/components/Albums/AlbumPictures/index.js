@@ -6,14 +6,12 @@ import { NavLink, Redirect, useHistory } from 'react-router-dom';
 import { getPictures } from '../../../store/pictureReducer';
 import './PictureList.css';
 
-const PictureList = () => {
+const AlbumPictures = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
-
-
-
+    const albumPictures = 
 
     const navLink = (id) => {
         history.push(`/picture/${id}`)
@@ -53,6 +51,7 @@ const PictureList = () => {
                             >
                                 <div className='insideOverlay'>
                                     <div className='image-title'>{picture.name}  </div>
+                                    <div className='image-date'> {picture.createdAt.slice(0, 10)}</div>
                                 </div>
                             </div>
                         </div>
@@ -64,4 +63,4 @@ const PictureList = () => {
 
 }
 
-export default PictureList;
+export default AlbumPictures;

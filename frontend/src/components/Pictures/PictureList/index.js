@@ -26,7 +26,7 @@ const PictureList = () => {
             <div className='HomePageImg'>
                 <img src='https://live.staticflickr.com/65535/51986459249_ee5d51af98_h.jpg'
                     alt=''
-                    className='HomePageImg'
+                    className='HomePageImage'
                     style={{ width: '100%' }} />
             </div>
             <h1 id='pictureH1'> Explore </h1>

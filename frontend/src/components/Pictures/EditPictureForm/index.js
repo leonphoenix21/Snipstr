@@ -70,8 +70,8 @@ const EditPictureForm = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-        history.push('/')
         setAlbum_id('')
+        history.push('/')
     };
 
 

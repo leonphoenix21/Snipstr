@@ -12,6 +12,15 @@ const PictureList = () => {
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
 
+    const pics = [
+        { 1: 'https://live.staticflickr.com/65535/51989383731_79940e0b6a_h.jpg' },
+        { 2: 'https://live.staticflickr.com/65535/51987929062_d2dce274d2_k.jpg' },
+        { 3: 'key' },
+        { 4: 'key' },
+        { 5: 'key' },
+        { 6: 'key' },
+
+    ]
     const navLink = (id) => {
         history.push(`/picture/${id}`)
     }
@@ -22,8 +31,7 @@ const PictureList = () => {
 
     return (
         <>
-
-            <div className='HomePageImg'>
+            <div className='HomePageImage'>
                 <img src='https://live.staticflickr.com/65535/51986459249_ee5d51af98_h.jpg'
                     alt=''
                     className='HomePageImage'

@@ -13,6 +13,7 @@ import CreateAlbumForm from "./components/Albums/CreateAlbums";
 import ViewAlbumList from "./components/Albums/ViewAlbums";
 import EditAlbumForm from "./components/Albums/EditAlbums";
 import AlbumPictures from "./components/Albums/AlbumPictures";
+import UserPictureList from "./components/Pictures/UserPictures";
 
 
 
@@ -50,6 +51,9 @@ function App() {
           }
           <Route exact path={'/'}>
             <PictureList />
+          </Route>
+          <Route exact path='/all'>
+            <UserPictureList />
           </Route>
           <Route path='/picture/:id'>
             <SinglePicture user={sessionUser} />

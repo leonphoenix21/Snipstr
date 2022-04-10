@@ -12,7 +12,8 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div className='pictureNav'>
-                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink exact to="/">Explore</NavLink>
+                    <NavLink exact to="/all">Camera Roll</NavLink>
                     <NavLink exact to="/pictures"> Upload </NavLink>
                     <NavLink exact to="/albums"> Create Album </NavLink>
                     <NavLink exact to="/albumlist"> Album List </NavLink>

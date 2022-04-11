@@ -76,57 +76,67 @@ const EditPictureForm = ({ user }) => {
 
 
     return (
-        <div id='EditPictureDiv'>
-            {verify[0] ?
-                <>
-                    <form onSubmit={handleSubmit} className='EditPictureForm'>
-                        <input
-                            id='nameInput'
-                            type='text'
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
-                            placeholder='Title'
-                            name='name'
-                            required
-                        />
-                        <input
-                            type='text'
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                            placeholder='Image URL'
-                            name='url'
-                            required
-                        />
-                        <select className='container p5'
-                            onChange={(e) => setAlbum_id(e.target.value)}
-                        >
-                            <option style={{ display: 'block' }} value='null' >Select Album Here</option>
-                            {albumArr?.map(album => (
-                                <option value={album.id}
-                                    key={album.id}
-                                >
-                                    {album.name}
-                                </option>
+        <>
 
-                            ))}
-                        </select>
-                        <button
-                            onClick={(e) => (
-                                setUser_id(user.id)
-                            )}
-                            type='submit'>
-                            Submit
-                        </button>
-                    </form>
-                    <form onSubmit={DeleteSubmit} id='deletePictureForm'>
-                        <button
-                            type='submit'>
-                            Delete
-                        </button>
-                    </form>
-                </>
-                : null}
-        </div>
+            <h2> Edit  </h2>
+            <div id='EditPictureDiv' className='EditPictureForm'>
+                {verify[0] ?
+                    <div>
+                        <form onSubmit={handleSubmit} >
+                            <input
+                                className='field'
+                                id='nameInput'
+                                type='text'
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                                placeholder='rename here... '
+                                name='name'
+                                required
+                            />
+                            <input
+                                className='field'
+                                type='text'
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
+                                placeholder='change image url here...'
+                                name='url'
+                                required
+                            />
+                            <select
+                                onChange={(e) => setAlbum_id(e.target.value)}
+                                className='field'
+                            >
+                                <option style={{ display: 'block' }} value='null' >album options</option>
+                                {albumArr?.map(album => (
+                                    <option value={album.id}
+                                        key={album.id}
+                                    >
+                                        {album.name}
+                                    </option>
+
+                                ))}
+                            </select>
+                            <button
+                                id='btnfield'
+                                onClick={(e) => (
+                                    setUser_id(user.id)
+                                )}
+                                type='submit'
+                                style={{ margin: '5px', width: '100px' }}>
+                                Submit
+                            </button>
+                        </form>
+                        <form onSubmit={DeleteSubmit} id='deletePictureForm'>
+                            <button
+                                style={{ margin: '5px', width: '100px' }}
+                                type='submit'>
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                    : null}
+            </div>
+        </>
     )
 
 }

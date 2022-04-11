@@ -1,36 +1,30 @@
-#createPictureForm {
-    /* display: flex;
-    justify-content: left;
-    flex-direction: column; */
-    padding: 10px;
-    border-radius: 5%;
-    border: solid black 1px;
+.EditPictureForm {
+    padding-top: 35px;
+    padding: 30px;
+    max-width: 850px;
+    width: 70%;
+    height: 70%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
-    box-shadow: 3px 1px 1px;
-    background-color: antiquewhite;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
 }
 
-#inputBox {
-    width: 50vw;
+#btnfield {
+    padding: 10px;
 }
 
-textarea {
-    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 20px;
-    padding: 5px;
-}
-
-#nameInput {
-    margin-bottom: 20px;
-    height: 50px;
-    padding-left: 5px;
-}
-
-.inputBox {
-    display: flex;
-    justify-content: right;
-    align-items: right;
+.field {
+    width: 100%;
+    border: 2px solid rgba(0, 0, 0, 0);
+    outline: none;
+    background-color: rgba(230, 230, 230, 0.6);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    transition: .3s;
 }

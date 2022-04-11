@@ -33,35 +33,41 @@ const CreateAlbumForm = ({ user }) => {
         history.push('/albumlist')
     };
     return (
-        <div className='AlbumDiv'>
-            <h1>Create Album</h1>
-            <form onSubmit={handleSubmit} className='createAlbumForm'>
-                <input
-                    id='nameInput'
-                    type='text'
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                    placeholder='Title'
-                    name='name'
-                    required
-                />
-                <input
-                    type='text'
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder='Image URL'
-                    name='url'
-                    required
-                />
+        <div className='albumcontainer'>
+            <div className='albumpicture-box'>
+                <div>
+                    <h2>new album</h2>
+                    <form onSubmit={handleSubmit} className='createAlbumForm'>
+                        <input
+                            className='field'
+                            type='text'
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            placeholder='name'
+                            name='name'
+                            required
+                        />
+                        <input
+                            className='field'
+                            type='text'
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                            placeholder='image url'
+                            name='url'
+                            required
+                        />
 
-                <button
-                    onClick={(e) => (
-                        setUser_id(user.id)
-                    )}
-                    type='submit'>
-                    Submit
-                </button>
-            </form>
+                        <button
+                            onClick={(e) => (
+                                setUser_id(user.id)
+                            )}
+                            type='submit'
+                            className='btn'>
+                            submit
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }

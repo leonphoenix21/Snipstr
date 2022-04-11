@@ -1,40 +1,11 @@
-#imgDiv {
-
-    padding: 10px;
-    padding-bottom: 100px;
-    /* height: 400px;
-    width: 600px; */
+.albumgallery {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
-    flex-direction: column;
-    font-size: 30px;
-    transition-duration: 3s;
 }
 
-#NavDiv {
-    padding-bottom: 10px;
-}
-
-img {
-    width: 100%;
-
-}
-
-
-.all {
-    border: solid 1px black;
-    background-color: white;
-    --text-visibility: hidden;
-    --name-visibility: hidden;
-}
-
-.all:hover {
-    --text-visibility: visible;
-    --name-visibility: visible;
-}
-
-.createdAt {
-    font-size: 20px;
-    visibility: var(--text-visibility);
+.image-created {
+    font-size: 1.5em;
+    padding-left: 150px;
+    margin-top: .77em;
 }

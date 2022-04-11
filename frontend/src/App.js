@@ -14,6 +14,7 @@ import ViewAlbumList from "./components/Albums/ViewAlbums";
 import EditAlbumForm from "./components/Albums/EditAlbums";
 import AlbumPictures from "./components/Albums/AlbumPictures";
 import UserPictureList from "./components/Pictures/UserPictures";
+import SplashPage from "./components/SplashPage";
 
 
 
@@ -46,12 +47,15 @@ function App() {
               <CreatePictureForm user={sessionUser} />
             </Route> : // or statement
             <Route >
-              <LoginFormPage />
+              <SplashPage />
             </Route>
           }
-          <Route exact path={'/'}>
+          {sessionUser ? <Route exact path={'/home'}>
             <PictureList />
-          </Route>
+          </Route> : <Route exact path={'/'}>
+            <SplashPage />
+          </Route>}
+
           <Route exact path='/all'>
             <UserPictureList />
           </Route>
@@ -63,15 +67,15 @@ function App() {
             <ViewAlbumList user={sessionUser} />
           </Route>
           <Route path='/albums/:id'>
-            <AlbumPictures user={sessionUser} />
             <EditAlbumForm user={sessionUser} />
+            <AlbumPictures user={sessionUser} />
           </Route>
           {sessionUser ?
             <Route exact path={"/albums"}>
               <CreateAlbumForm user={sessionUser} />
             </Route> : // or statement
             <Route >
-              <LoginFormPage />
+              <SplashPage />
             </Route>
           }
           <Route>

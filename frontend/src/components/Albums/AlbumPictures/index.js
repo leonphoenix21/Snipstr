@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Redirect, useHistory, useParams } from 'react-router-dom';
+import { getAlbums } from '../../../store/albumReducer';
 import { getPictures } from '../../../store/pictureReducer';
 import './AlbumPictures.css';
 
@@ -13,8 +14,16 @@ const AlbumPictures = () => {
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
     const albumPictures = pictures.filter(picture => picture.album_id === +id)
+    const albums = useSelector(state => state.album.list);
 
+    useEffect(() => {
+        dispatch(getAlbums());
+    }, [dispatch]);
 
+    const displayName = [];
+    const albumName = albums.map(album => {
+        if (album.id === +id) displayName.push(album.name)
+    })
     console.log('This is album pictures', albumPictures)
 
     const navLink = (id) => {
@@ -27,8 +36,7 @@ const AlbumPictures = () => {
 
     return (
         <>
-
-            <h1 id='pictureH1'> Pics </h1>
+            <h2 className='h3class'> {displayName[0]} </h2>
             <div className='gallery' >
                 {albumPictures.map(picture => (
                     <>
@@ -45,7 +53,7 @@ const AlbumPictures = () => {
                             >
                                 <div className='insideOverlay'>
                                     <div className='image-title'>{picture.name}  </div>
-                                    <div className='image-date'> {picture.createdAt.slice(0, 10)}</div>
+                                    <div className='image-createdAt'> {picture.createdAt.slice(0, 10)}</div>
                                 </div>
                             </div>
                         </div>

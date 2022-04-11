@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import React from 'react';
-import ReactDOM from 'react-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getPictures } from '../../../store/pictureReducer';
 import './PictureList.css';
 
@@ -30,7 +28,7 @@ const PictureList = () => {
         const pictureInterval = setInterval(() => {
             setNum((prevNum) => (prevNum === 5 ? 0 : prevNum + 1));
         }, 5000);
-        return (() => pictureInterval);
+        return () => pictureInterval;
     }, []);
 
 
@@ -46,7 +44,7 @@ const PictureList = () => {
         <>
             <div >
                 <img src={pics[num]}
-                    alt=''
+                    alt='pics'
                     className='HomePageImage'
                 />
             </div>

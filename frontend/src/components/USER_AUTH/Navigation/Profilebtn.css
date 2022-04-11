@@ -24,7 +24,7 @@ body {
     background: rgb(0, 100, 1);
     margin-top: 15px;
     margin-left: -15px;
-    background: white;
+    background: purple;
     border-bottom: 1pz dotted #fff;
     padding-bottom: 10px;
 
@@ -32,10 +32,11 @@ body {
     border-radius: 0; */
 }
 
-/* .sub-menu-1>li {
-    position: absolute;
+.sub-menu-1>*:hover {
+    background-color: purple;
+}
 
-} */
+
 
 #usernameLI {
     padding: 10px;

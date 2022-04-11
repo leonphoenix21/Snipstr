@@ -44,7 +44,6 @@ const UploadImage = ({ user }) => {
             user_id,
             album_id
         };
-        console.log("BHBHBBHBH", newPicture)
         const picture = await dispatch(createPicture(newPicture));
         if (picture) {
             reset()
@@ -73,7 +72,6 @@ const UploadImage = ({ user }) => {
                 <div className='right'>
                     <h2>upload</h2>
                     <form onSubmit={handleSubmit} id='createPictureForm'>
-
                         <input
                             className='field'
                             type='text'

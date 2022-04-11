@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
         <>
             <nav>
                 <ul className='nav_links'>
-                    <li key='1'><NavLink exact to="/">Explore</NavLink></li>
+                    <li key='1'><NavLink exact to="/home">Explore</NavLink></li>
                     <li key='2'><NavLink exact to="/all">Camera Roll</NavLink></li>
                     <li key='3'><NavLink exact to="/pictures"> Upload </NavLink></li>
                     <li key='4'><NavLink exact to="/albums"> Create Album </NavLink></li>

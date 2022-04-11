@@ -65,46 +65,57 @@ const UploadImage = ({ user }) => {
     }
 
     return (
-        <div className='inputBox' id='inputBox'>
-            <h1>Upload Image</h1>
-            <form onSubmit={handleSubmit} id='createPictureForm'>
+        <div className='container'>
+            <div className='picture-box'>
+                <div className='left'>
 
-                <input
-                    id='nameInput'
-                    type='text'
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                    placeholder='Title'
-                    name='name'
-                    required
-                />
-                <input
-                    type='text'
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder='Image URL'
-                    name='url'
-                    required
-                />
-                <select className='container p5'
-                    onChange={(e) => setAlbum_id(e.target.value)}
-                >
-                    <option style={{ display: 'block' }} value='null'>Select Album Here</option>
-                    {albumArr?.map(album => (
-                        <option value={album.id}
-                        >{album.name}</option>
+                </div>
+                <div className='right'>
+                    <h2>upload</h2>
+                    <form onSubmit={handleSubmit} id='createPictureForm'>
 
-                    ))}
-                </select>
+                        <input
+                            className='field'
+                            type='text'
+                            onChange={(e) => setName(e.target.value)}
+                            value={name}
+                            placeholder='Title'
+                            name='name'
+                            required
+                        />
+                        <input
+                            className='field'
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                            placeholder='Image URL'
+                            name='url'
+                            required
+                        />
+                        <select className='field'
+                            onChange={(e) => setAlbum_id(e.target.value)}
 
-                <button
-                    onClick={(e) => (
-                        setUser_id(user.id)
-                    )}
-                    type='submit'>
-                    Submit
-                </button>
-            </form>
+                        >
+                            <option style={{ display: 'block' }} value='null'>Select Album Here</option>
+                            {albumArr?.map(album => (
+                                <option value={album.id}
+                                >{album.name}</option>
+
+                            ))}
+                        </select>
+
+                        <button
+                            onClick={(e) => (
+                                setUser_id(user.id)
+                            )}
+                            type='submit'
+                            className='btn'>
+                            Submit
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
         </div>
     );
 };

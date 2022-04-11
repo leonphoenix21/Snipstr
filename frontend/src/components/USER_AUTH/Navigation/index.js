@@ -8,49 +8,43 @@ function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
-    if (sessionUser) {
-        sessionLinks = (
-            <>
-                <div className='pictureNav'>
-                    <NavLink exact to="/">Explore</NavLink>
-                    <NavLink exact to="/all">Camera Roll</NavLink>
-                    <NavLink exact to="/pictures"> Upload </NavLink>
-                    <NavLink exact to="/albums"> Create Album </NavLink>
-                    <NavLink exact to="/albumlist"> Album List </NavLink>
-                    <div className='profile'>
-                        <ProfileButton user={sessionUser} />
-                    </div>
-                </div>
-            </>
-        );
-    } else {
-        sessionLinks = (
-            <>
-                <div id='navbarLinks' className='pictureNav'>
-                    <NavLink to="/login">Log In</NavLink>
-                    <NavLink to="/signup">Sign Up</NavLink>
-                </div>
-            </>
-        );
-    }
 
+    sessionLinks = (
+        <>
+            <nav>
+                <ul className='nav_links'>
+                    <li key='1'><NavLink exact to="/">Explore</NavLink></li>
+                    <li key='2'><NavLink exact to="/all">Camera Roll</NavLink></li>
+                    <li key='3'><NavLink exact to="/pictures"> Upload </NavLink></li>
+                    <li key='4'><NavLink exact to="/albums"> Create Album </NavLink></li>
+                    <li key='5'><NavLink exact to="/albumlist"> Album List </NavLink></li>
+                    <li key='6'>
+                        <div className='profile'>
+                            <ProfileButton user={sessionUser} />
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </>
+    );
     return (
-        <div>
+        <>
             {!sessionUser ?
-                <>
-                    <div id='navbardiv' >
-                        <NavLink exact to="/"> Home </NavLink>
-                        <NavLink to="/login">Log In</NavLink>
-                        <NavLink to="/signup">Sign Up</NavLink>
-                    </div>
-
-                </>
-                : <div >
+                <header>
+                    <nav >
+                        <ul className='nav_links'>
+                            <li><NavLink exact to="/"> Home </NavLink></li>
+                            <li><NavLink to="/login">Log In</NavLink></li>
+                            <li><NavLink to="/signup">Sign Up</NavLink></li>
+                        </ul>
+                    </nav>
+                </header>
+                : <>
                     {isLoaded && sessionLinks}
-                </div>
+                </>
             }
 
-        </div>
+        </>
     );
 }
 

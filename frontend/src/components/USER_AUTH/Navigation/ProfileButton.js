@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/session';
 import { Route } from 'react-router-dom';
 import LoginFormPage from "../LoginFormPage";
+import './Profilebtn.css'
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -13,6 +14,12 @@ function ProfileButton({ user }) {
         setShowMenu(true);
     };
 
+
+    const closeMenu = () => {
+        setTimeout(() => {
+            setShowMenu(false)
+        }, 1500)
+    }
     useEffect(() => {
         if (!showMenu) return;
 
@@ -35,19 +42,23 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <button onClick={openMenu}>
-                Account
-                <i className="fas fa-user-circle" />
-            </button>
-            {showMenu && (
-                <ul className="profile-dropdown">
-                    <li>{user.username}</li>
-                    <li>{user.email}</li>
-                    <li>
-                        <button onClick={logout}>Log Out</button>
+            <div className="profile-dropdown">
+                <ul>
+                    <li onClick={openMenu}><a> Account </a>
+                        {showMenu && (
+                            <div className="sub-menu-1">
+                                <ul>
+                                    <li id='usernameLI'>{user.username}</li>
+                                    <li id='emailLI'> {user.email}</li>
+                                    <li id='buttonLI'>
+                                        <button onClick={logout}>Log Out</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        )}
                     </li>
                 </ul>
-            )}
+            </div>
         </>
     );
 }

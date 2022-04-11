@@ -11,16 +11,29 @@ const PictureList = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
+    const [num, setNum] = useState(0);
+
+
 
     const pics = [
-        { 1: 'https://live.staticflickr.com/65535/51989383731_79940e0b6a_h.jpg' },
-        { 2: 'https://live.staticflickr.com/65535/51987929062_d2dce274d2_k.jpg' },
-        { 3: 'key' },
-        { 4: 'key' },
-        { 5: 'key' },
-        { 6: 'key' },
-
+        'https://live.staticflickr.com/65535/51989383731_79940e0b6a_h.jpg',
+        'https://live.staticflickr.com/65535/51987929062_d2dce274d2_k.jpg',
+        'https://live.staticflickr.com/65535/51992697234_81ab64a8e6_h.jpg',
+        'https://live.staticflickr.com/65535/51993338052_b5a056d5e0_h.jpg',
+        'https://live.staticflickr.com/65535/51994864440_5d40a38f7b_b.jpg',
+        'https://live.staticflickr.com/65535/51993482155_39813c68a6_h.jpg',
     ]
+
+
+
+    useEffect(() => {
+        const pictureInterval = setInterval(() => {
+            setNum((prevNum) => (prevNum === 5 ? 0 : prevNum + 1));
+        }, 5000);
+        return (() => pictureInterval);
+    }, []);
+
+
     const navLink = (id) => {
         history.push(`/picture/${id}`)
     }
@@ -31,11 +44,11 @@ const PictureList = () => {
 
     return (
         <>
-            <div className='HomePageImage'>
-                <img src='https://live.staticflickr.com/65535/51986459249_ee5d51af98_h.jpg'
+            <div >
+                <img src={pics[num]}
                     alt=''
                     className='HomePageImage'
-                    style={{ width: '100%' }} />
+                />
             </div>
             <h1 id='pictureH1'> Explore </h1>
             <nav className='pictureNav'>

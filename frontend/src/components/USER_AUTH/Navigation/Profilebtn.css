@@ -1,0 +1,50 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    padding: 5px;
+}
+
+body {
+    /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Grey_icon.svg/1024px-Grey_icon.svg.png); */
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.sub-menu-1>* {
+    position: absolute;
+    background: rgb(0, 100, 1);
+    margin-top: 15px;
+    margin-left: -15px;
+    background: white;
+    border-bottom: 1pz dotted #fff;
+    padding-bottom: 10px;
+
+    /* width: 150px;
+    border-radius: 0; */
+}
+
+/* .sub-menu-1>li {
+    position: absolute;
+
+} */
+
+#usernameLI {
+    padding: 10px;
+}
+
+#emailLi {
+    padding: 10px;
+}
+
+#buttonLI {
+    padding: 10px;
+}

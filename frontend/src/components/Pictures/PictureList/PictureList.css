@@ -1,3 +1,10 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* background-color: #24252A; */
+}
+
 .gallery {
     --webkit-column-count: 3;
     -moz-column-count: 3;
@@ -19,10 +26,7 @@ body {
 
 }
 
-.backImg {
-    width: 100%;
-    height: 100%;
-}
+.backImg {}
 
 .pics {
     -webkit-transiton: all 350ms ease;
@@ -33,7 +37,7 @@ body {
 }
 
 .HomePageImage {
-    height: 90vh;
+    height: 80vh;
 }
 
 .pictureNav {
@@ -49,7 +53,8 @@ body {
 
 #pictureH1 {
     font-size: 2em;
-    padding-top: -10px;
+    padding-top: 30px;
+    padding-bottom: 15px;
     font-weight: bold;
     font-family: 'Quicksand', sans-serif;
 }

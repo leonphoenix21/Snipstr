@@ -27,7 +27,6 @@ const deleteAlbum = (album) => ({
 
 //! Create Albums in the DataBase
 export const createAlbum = (data) => async (dispatch) => {
-    console.log("datat", data)
     const response = await csrfFetch('/api/albums', {
         method: 'post',
         body: JSON.stringify(data)

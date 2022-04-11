@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useHistory, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 import './Splash.css';
@@ -7,6 +8,7 @@ const SplashPage = () => {
     const [num, setNum] = useState(0);
     const history = useHistory();
 
+    const sessionUser = useSelector(state => state.session.user);
     const pics = [
         'https://live.staticflickr.com/65535/51989383731_79940e0b6a_h.jpg',
         'https://live.staticflickr.com/65535/51987929062_d2dce274d2_k.jpg',
@@ -21,8 +23,19 @@ const SplashPage = () => {
         }, 10000);
         return () => pictureInterval;
     }, []);
+
+
+    if (sessionUser) return (
+        <Redirect to="/home" />
+    );
+
     const navLink = () => {
-        history.push(`/signup`)
+        if (sessionUser) {
+            history.push(`/signup`)
+        }
+        else {
+            history.push(`/signup`)
+        }
     }
 
     return (

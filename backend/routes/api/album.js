@@ -14,7 +14,7 @@ router.get('/', asyncHandler(async (_req, res) => {
 
 
 router.post('/', asyncHandler(async (req, res) => {
-    console.log('the boooooooody', req.body)
+
     const albums = await Albums.create(req.body);
     res.json(albums);
     // return res.redirect(`/`)
@@ -26,7 +26,7 @@ router.put(
         const album = req.body
         const id = album.id;
         delete album.id;
-        console.log({ album, id });
+
         const albumS = await Albums.update(
             album,
             {

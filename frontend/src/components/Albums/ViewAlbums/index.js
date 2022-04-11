@@ -13,12 +13,10 @@ const ViewAlbumList = () => {
     const sessionUser = useSelector(state => state.session.user);
     const albums = useSelector(state => state.album.list);
     const userAlbums = albums.filter(album => album.user_id === +sessionUser.id)
-    // console.log("this is user Albums", sessionUser.id, albums)
+
     const alb = userAlbums.filter(album => album.id === +id)
     const verify = alb.map(pic => pic.user_id === +sessionUser.id)
-    console.log("this is alb", verify, alb)
-    console.log("this is userALbums", userAlbums)
-    console.log("this is user", sessionUser)
+
 
     const navLink = (id) => {
         history.push(`/albums/${id}`)

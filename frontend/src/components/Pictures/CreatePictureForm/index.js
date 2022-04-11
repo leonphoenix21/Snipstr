@@ -34,7 +34,7 @@ const UploadImage = ({ user }) => {
             albumArr.push(userAlbums[album.id] = album)
         }
     })
-    console.log('this is user', albumArr)
+
     const handleSubmit = async (err) => {
 
         err.preventDefault();
@@ -55,7 +55,7 @@ const UploadImage = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-        history.push('/')
+        history.push('/home')
 
     };
 

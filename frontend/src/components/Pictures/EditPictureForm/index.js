@@ -27,9 +27,7 @@ const EditPictureForm = ({ user }) => {
 
     const pict = picture.filter(pic => pic.id === +id)
     const verify = pict.map(pic => pic.user_id === +sessionUser.id)
-    console.log("this is verify", verify)
-    // console.log("this is picture, ", pict)
-    // console.log("this is creator ", isCreator, 'this is sessionUser', sessionUser)
+
 
     const albumSearch = albums.map(album => {
         const userAlbums = {}
@@ -47,7 +45,7 @@ const EditPictureForm = ({ user }) => {
             user_id,
             album_id
         }
-        history.push('/')
+        history.push('/home')
         const pictures = await dispatch(editPicture(payload));
         if (pictures) {
             reset()
@@ -59,7 +57,7 @@ const EditPictureForm = ({ user }) => {
         const payload = {
             id
         }
-        console.log("payload", payload.id)
+
         await dispatch(deletePicture(payload.id));
         reset();
 
@@ -71,7 +69,7 @@ const EditPictureForm = ({ user }) => {
         setUrl('');
         setUser_id('');
         setAlbum_id('')
-        history.push('/')
+        history.push('/home')
     };
 
 

@@ -41,7 +41,7 @@ const EditAlbumForm = ({ user }) => {
         const payload = {
             id
         }
-        history.push('/')
+        history.push('/home')
         await dispatch(deleteAlbums(payload.id));
         reset();
     }
@@ -51,7 +51,7 @@ const EditAlbumForm = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-        history.push('/')
+        history.push('/home')
     };
 
     return (
@@ -85,8 +85,16 @@ const EditAlbumForm = ({ user }) => {
                                 setUser_id(user.id)
                             )}
                             type='submit'
-                            className='btn'>
+                            id='submitAlbumForm'
+                            className='editbtn'>
                             Submit
+                        </button>
+                    </form>
+                    <form onSubmit={DeleteSubmit} id='deleteAlbumForm'>
+                        <button
+                            type='submit'
+                            className='editbtn'>
+                            Delete
                         </button>
                     </form>
                 </div>

@@ -92,8 +92,8 @@ textarea {
     min-height: 150px;
 }
 
-.btn {
-    width: 100%;
+.editbtn {
+    width: 40%;
     padding: 0.5rem 1rem;
     background-color: #2ecc71;
     color: #fff;
@@ -104,8 +104,17 @@ textarea {
     transition: .3s;
 }
 
-.btn:hover {
+.editbtn:hover {
+    padding: 5px;
     background-color: #27ae60;
+}
+
+#submitAlbumForm {
+    margin: -10px;
+}
+
+#deleteAlbumForm {
+    margin: 10px;
 }
 
 .field:focus {

@@ -19,7 +19,7 @@ const CreateAlbumForm = ({ user }) => {
             url,
             user_id
         };
-        console.log("newAlbum", newAlbum)
+
         const album = await dispatch(createAlbum(newAlbum));
         if (album) {
             reset()

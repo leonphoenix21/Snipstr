@@ -24,7 +24,7 @@ const AlbumPictures = () => {
     const albumName = albums.map(album => {
         if (album.id === +id) displayName.push(album.name)
     })
-    console.log('This is album pictures', albumPictures)
+
 
     const navLink = (id) => {
         history.push(`/picture/${id}`)

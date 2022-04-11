@@ -42,10 +42,11 @@ const PictureList = () => {
 
     return (
         <>
-            <div >
+            <div className='HomePageImage'>
                 <img src={pics[num]}
-                    alt='pics'
+                    alt=''
                     className='HomePageImage'
+                    style={{ width: '100%' }}
                 />
             </div>
             <h1 id='pictureH1'> Explore </h1>

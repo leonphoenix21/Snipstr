@@ -28,22 +28,28 @@ const SplashPage = () => {
     return (
         <body>
             <div className='splashcontainer'>
+                <div className='HomePageImage'>
+                    <img src={pics[num]}
+                        alt=''
+                        className='HomePageImage'
+                        style={{ width: '100%' }}
+                    />
+                </div>
                 <div className='splashpicture-box'>
                     <div className='right'>
-                        <div className='splashleft'>
-
-                        </div>
-                        <h2> Welcome to Snipstr </h2>
-                        <div id='splashtext'>
-                            A place to share how you see the world
-                        </div>
-                        <button
-                            onClick={() => navLink()}
-                            className='btn'>
-                            Click To Begin
-                        </button>
 
                     </div>
+                    <h2> Welcome to Snipstr </h2>
+                    <div id='splashtext'>
+                        A place to share how you see the world
+                    </div>
+                    <button
+                        onClick={() => navLink()}
+                        className='splashbtn'>
+                        Click To Begin
+                    </button>
+
+
                 </div>
 
             </div>

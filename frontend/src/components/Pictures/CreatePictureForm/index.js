@@ -55,8 +55,7 @@ const UploadImage = ({ user }) => {
         setName('');
         setUrl('');
         setUser_id('');
-        history.push('/home')
-
+        history.push('/home');
     };
 
     const submitAlbum = (album) => {

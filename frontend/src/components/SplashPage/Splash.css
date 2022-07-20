@@ -1,70 +1,105 @@
 * {
+    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+}
+
+.SplashBody {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    /* border: red solid 10px; */
+    overflow: hidden;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    margin-top: -8.5vh;
+
 }
 
-.splashpicture-box {
-    max-width: 850px;
-    height: 100vh;
-    width: 100vh;
+.OverlayText {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    top: 35%;
+    left: 33%;
+}
+
+.HeaderQuote {
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 56px;
+    color: white;
     text-align: center;
-    background-color: #fff;
-    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+    margin-left: -460px;
+    margin-bottom: 35px;
+    /* border: burlywood solid 1px; */
 }
 
-.splashbtn {
-    width: 50%;
-    padding: 0.5rem 1rem;
-    background-color: #2ecc71;
-    color: #fff;
-    font-size: 1.1rem;
+.introduceSnipstr {
+    color: white;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-bottom: 50px;
+    margin-left: -70px;
+    width: 67%;
+    min-width: 57%;
+    /* border: red solid 1px; */
+}
+
+.splashBeginBtn {
+    height: 35px;
+    width: fit-content;
+    font-size: 24px;
+    font-weight: 800;
+    height: 64px;
+    line-height: 64px;
     border: none;
-    outline: none;
+    border-radius: 3px;
+    box-sizing: border-box;
     cursor: pointer;
-    transition: .3s;
+    display: inline-block;
+    padding: 0 20px 0 20px;
+    margin-left: 150px;
 }
 
-.splashcontainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 50px 120px;
-
-    height: 90vh;
-
+.devLinksTitle {
+    font-size: 14px;
+    color: hsla(0, 0%, 100%, .6);
+    margin-left: 3%;
 }
 
-.splashleft {
-    background: url("https://cdn.pixabay.com/photo/2016/01/09/18/27/camera-1130731_1280.jpg") no-repeat center;
-    background-size: cover;
-    height: 50vh;
-    width: 100%;
-    padding-bottom: 10px;
-}
-
-#splashtext {
-    font-size: 20px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    padding: 30px;
-}
-
-.splashcontainer:after {
-    content: '';
+.splashFooter {
     position: absolute;
     width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background-size: cover;
-    filter: blur(50px);
-    z-index: -1;
-    background: url("https://wallpaperaccess.com/full/3348915.jpg") no-repeat center;
+    height: 7vh;
+    background-color: black;
+    bottom: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.linkIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+}
+
+.linkImg {
+    height: 45px;
+    border-radius: 50%;
+    margin-top: -4px;
+}
+
+.gitImg {
+    height: 35px;
+    border-radius: 50%;
+}
+
+.alinkImg {
+    height: 40px;
+    margin-left: 3%;
+    cursor: pointer;
 }

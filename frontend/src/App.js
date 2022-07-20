@@ -15,6 +15,7 @@ import EditAlbumForm from "./components/Albums/EditAlbums";
 import AlbumPictures from "./components/Albums/AlbumPictures";
 import UserPictureList from "./components/Pictures/UserPictures";
 import SplashPage from "./components/SplashPage";
+import { getPictures } from "./store/pictureReducer";
 
 
 
@@ -26,7 +27,7 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(sessionActions.restoreUser()).then(() => (setIsLoaded(true), getPictures()));
   }, [dispatch]);
 
   const sessionUser = useSelector(state => state.session.user);

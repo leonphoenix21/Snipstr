@@ -1,63 +1,406 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    /* background-color: #24252A; */
+*::-webkit-scrollbar {
+    color: beige;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
+    z-index: -1;
+    visibility: hidden;
+    height: 2px;
+    width: 2px;
 }
 
-li,
-a,
-button {
+.navbar {
+    /* background-color: white; */
+    background: rgba(0, 0, 0, .25);
+    height: 8.4vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 13%;
+    list-style: none;
+    position: sticky;
+    top: 0;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
+    margin-bottom: 1px;
+    z-index: 10;
+    width: 100vw;
+}
+
+.navbar.navlinks {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.navlinks {
+    position: absolute;
+    left: 22%;
+    list-style-type: none;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    justify-self: center;
+    padding: 3px;
+    font-size: medium;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navlinks:hover {
+    color: grey;
+}
+
+.logoName {
+    font-family: 'Secular One', sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    /* border: red solid 1px; */
+    display: flex;
+    align-items: center;
+    line-height: 2px;
+}
+
+.logoDots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+}
+
+
+.redDot {
+    font-size: 45px;
+    color: red;
+}
+
+.blueDot {
+    font-size: 50px;
+    color: blue;
+    margin-left: -35px;
+    margin-right: -14px;
+}
+
+.searchBarDiv {
+    position: absolute;
+    margin-left: -45px;
+    width: 67%;
+}
+
+.searchInput {
+    height: 36px;
+    width: 100%;
+    border-top: #b7b7b7bb solid .1px;
+    border-left: #b7b7b7bb solid .1px;
+    border-right: #b7b7b7bb solid .1px;
+    border-bottom: #b7b7b7bb solid .1px;
     padding: 5px;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: black;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 1.5px;
+    /* visibility: hidden; */
+}
+
+.searchInputIcon {
+    /* border: red solid 1px; */
+    font-size: 23px;
+    left: 10px;
+    margin-top: 9px;
+    position: absolute;
+    color: #454545be;
+}
+
+.resultDisplayDiv {
+    position: fixed;
+    background-color: white;
+    border: #30303079 solid .1px;
+    padding: 10px;
+    height: fit-content;
+    border-top: none;
+    border-left: #3030301d solid .1px;
+    margin-top: .9px;
+    width: 67%;
+}
+
+
+
+.resultSearchhdr {
+    margin: 2px 0px 7px 0px;
+    margin-bottom: 10px;
+}
+
+.Topresults {
+    padding-bottom: 7px;
+    border-bottom: rgba(0, 0, 0, 0.086) solid .1px;
+}
+
+
+.eachResultDiv {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    font-size: 14px;
     text-decoration: none;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-}
 
-.nav_links {
-    list-style: none;
-    padding: 20px;
-}
+.signupNavBtn {
 
-.nav_links li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.nav_links li a {
-    transition: all 0.3s ease 0s;
-}
-
-
-
-.active,
-.nav_links ul li:hover {
-    background: purple;
-    border-radius: 5px;
-}
-
-.nav_links li:hover {
-    color: #0088a9;
-}
-
-button {
-    padding: 7px 23px;
-    background-color: rgba(0, 136, 169, 1);
     border: none;
-    border-radius: 50px;
+    border-radius: 3px;
+    box-sizing: border-box;
     cursor: pointer;
-    transition: all 0.3s ease 0s;
+    display: inline-block;
+    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 20px;
+    text-align: center;
+    height: 32px;
+    width: fit-content;
+    background-color: #FFFF;
 }
 
-button:hover {
-    background-color: rgba(0, 136, 169, 0.8);
+.loginNavBtn {
+
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600px;
+    padding: 0 20px;
+    text-align: center;
+    height: 34px;
+    width: fit-content;
+    background: none;
+    color: #fff;
+    text-decoration: none;
+}
+
+.NavBarBtnsDiv {
+    position: absolute;
+    right: 25px;
+    transform: scaleX(.98) scaleY(1.01);
+}
+
+.dropdown {
+    position: absolute;
+    right: 10%;
+}
+
+
+/* Search Input for the Search Bar when user is logged in Session  */
+.sessionNavbar {
+    /* background-color: white; */
+    background: black;
+    height: 6.3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px 13%;
+    list-style: none;
+    position: sticky;
+    top: 0;
+    border-bottom: rgba(221, 221, 221, 0.5) solid 1px;
+    box-shadow: .1px .2px .1px rgba(78, 78, 78, 0.5);
+    margin-bottom: 1px;
+    z-index: 10;
+    width: 100vw;
+}
+
+.sessionNavbar.navlinks {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.sessionSearchBarDiv {
+    position: absolute;
+    right: 20%;
+    width: 23%;
+}
+
+.searchInputSession {
+    height: 36px;
+    width: 100%;
+    border-top: #b7b7b7bb solid .1px;
+    border-left: #b7b7b7bb solid .1px;
+    border-right: #b7b7b7bb solid .1px;
+    border-bottom: #b7b7b7bb solid .1px;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    margin-top: 1.5px;
+    /* visibility: hidden; */
+}
+
+.sessionResultDisplayDiv {
+    position: fixed;
+    background-color: white;
+    border: #30303079 solid .1px;
+    padding: 10px;
+    height: fit-content;
+    border-top: none;
+    border-left: #3030301d solid .1px;
+    margin-top: .9px;
+    width: 23%;
+}
+
+.searchInputIconSession {
+    /* border: red solid 1px; */
+    font-size: 23px;
+    left: 10px;
+    margin-top: 9px;
+    position: absolute;
+    color: #454545be;
+}
+
+.sessionLogoDots {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 10%;
+    cursor: pointer;
+}
+
+.upCloud {
+    position: absolute;
+    right: 250px;
+    margin-top: -18px;
+}
+
+.maincloud {
+    position: absolute;
+    font-size: 30px;
+    color: white;
+    margin-left: -20px;
+    margin-top: -8px;
+}
+
+.mainarrcloud {
+    position: absolute;
+    font-size: 15px;
+    margin-left: -13px;
+    margin-top: 5px;
+    color: black;
+}
+
+
+
+.profile-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border: .1px rgba(128, 128, 128, 0.503) solid;
+    border-top: none;
+    padding: 5px 25px;
+    border-radius: 2px;
+    /* color: #065fd4db; */
+    color: black;
+    margin-top: 10px;
+    right: 2px;
+    top: 20px;
+    width: 300px;
+}
+
+
+.dropdownTriangle {
+    position: absolute;
+    right: 20px;
+    top: -12px;
+    color: white;
+}
+
+.logoutDropdownDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.logoutImgSpan {
+    color: black;
+    font-size: 25px;
+    margin-left: -4px;
+}
+
+.lidrop-down {
+    margin-left: -4px;
+    padding-left: 10px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 15px 5px 3px;
+    width: 110%;
+    margin: 8px 0 8px -4px;
+
+    /* border: red solid 1px; */
+}
+
+.lidrop-down:hover {
+    background-color: whitesmoke;
+}
+
+.dropdownWelcome {
+    position: relative;
+    /* border: red solid 1px; */
+    color: #b3b3b3;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.username-down {
+    margin-left: -4px;
+    padding-left: 10px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px 15px 5px 3px;
+    width: 110%;
+    /* border: red solid 1px; */
+    border-bottom: .1px solid whitesmoke;
+}
+
+.username-span {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    /* border: red solid 1px; */
+}
+
+.userProfileUploadIcon {
+    position: absolute;
+    right: 17px;
+    margin-top: -15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
 }

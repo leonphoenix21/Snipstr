@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../../store/session';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import LoginFormPage from "../LoginFormPage";
+import { FaUserCircle } from "react-icons/fa";
+import { BsFillTriangleFill } from "react-icons/bs";
+
 import './Profilebtn.css'
 
 function ProfileButton({ user }) {
@@ -41,25 +44,39 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <>
-            <div className="profile-dropdown">
-                <ul>
-                    <li onClick={openMenu}><a> Account </a>
-                        {showMenu && (
-                            <div className="sub-menu-1">
-                                <ul>
-                                    <li id='usernameLI'>{user.username}</li>
-                                    <li id='emailLI'> {user.email}</li>
-                                    <li onClick={logout} >
-                                        <button >Log Out</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
-                    </li>
-                </ul>
-            </div>
-        </>
+
+        <div className="dropdown">
+
+            <div className='userProfileUploadIcon' onClick={openMenu}> <FaUserCircle /> </div>
+            {showMenu && (
+
+                <div className="profile-dropdown">
+                    <BsFillTriangleFill className="dropdownTriangle" />
+                    <div className='lidrop-downDiv'>
+
+                        <div className='username-down' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start' }}>
+                            <span className='username-span'> Hello, {user.username}!</span>
+                            <div className='dropdownWelcome' > Welcome to your page check the options below. </div>
+                        </div>
+                        <NavLink className='lidrop-down' to={`/all`} exact={true} activeClassName="active">
+                            Camera Roll
+                        </NavLink>
+                        <NavLink className='lidrop-down' to={`/albums`} exact={true} activeClassName="active">
+                            Create Album
+                        </NavLink>
+                        <NavLink className='lidrop-down' to={`/albumlist`} exact={true} activeClassName="active">
+                            Albums
+                        </NavLink>
+                        <div onClick={logout} className='lidrop-down' style={{ marginBottom: '5px' }}>
+                            Log Out
+                        </div>
+                    </div>
+
+                </div>
+
+            )}
+        </div >
+
     );
 }
 

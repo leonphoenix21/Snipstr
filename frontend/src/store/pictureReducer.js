@@ -59,7 +59,6 @@ export const editPicture = (data) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify(data)
     });
-    console.log("response", response.body)
     if (response.ok) {
         const picture = await response.json();
         dispatch(addPicture(picture));

@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   picture: pictureReducer,
   album: albumReducer
-
 });
 
 let enhancer;

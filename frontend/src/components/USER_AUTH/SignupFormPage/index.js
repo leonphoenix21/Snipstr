@@ -46,9 +46,11 @@ function SignupFormPage() {
                         <BsDot className='redDot' />
                         <BsDot className='blueDot' />
                     </div>
-                    <ul >
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    </ul>
+                    <div className='errors'>
+                        {errors.map((error, ind) => (
+                            <div key={ind} className='eachError'>{error}</div>
+                        ))}
+                    </div>
                     <h6 id='title-su'>Sign Up For Snipstr</h6>
                     <input
                         placeholder="email"

@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, NavLink } from "react-router-dom";
+import { Redirect, NavLink, useHistory } from "react-router-dom";
 import * as sessionActions from "../../../store/session";
+import { BsDot } from 'react-icons/bs'
 import './SignupForm.css';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const sessionUser = useSelector((state) => state.session.user);
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -31,54 +34,69 @@ function SignupFormPage() {
         return setErrors(['Confirm Password field must be the same as the Password field']);
     };
 
+    const login = () => {
+        history.push('/login')
+    }
+
     return (
-        <form onSubmit={handleSubmit} id="signUpForm">
-            <ul >
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <h1 id='title'>Sign Up</h1>
-            <input
-                placeholder="email"
-                id='emailSignUpLabel'
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
+        <div className="signUpBody">
+            <div className="form">
+                <form onSubmit={handleSubmit} id="signupform">
+                    <div className='signupLogoDots' >
+                        <BsDot className='redDot' />
+                        <BsDot className='blueDot' />
+                    </div>
+                    <ul >
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    </ul>
+                    <h6 id='title-su'>Sign Up For Snipstr</h6>
+                    <input
+                        placeholder="email"
+                        id='email-su'
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
 
-            <input
-                placeholder="username"
-                id='usernameSignUpLabel'
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-            />
+                    <input
+                        placeholder="username"
+                        id='username-su'
+                        type="text"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
 
-            <input
-                id='passwordSignUpLabel'
-                placeholder='password'
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
+                    <input
+                        id='password-su'
+                        placeholder='password'
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
 
-            <input
-                placeholder="confirm password"
-                id='confirmPasswordSignUpLabel'
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-            />
+                    <input
+                        placeholder="confirm Password"
+                        id='confirmPassword-su'
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
 
-            <button type="submit" id='submitSignUpBtn'>Sign Up</button>
+                    <button type="submit" id='signupbtn'>Sign Up</button>
 
-            <p>
-                <NavLink to="/login" >Already have an account</NavLink>
-            </p>
-        </form>
+                    <div className='termsPolicy '>
+                        <span>By signing up, you agree with Flickr's<span className='tpcolor'> No Terms of Services </span> and  <span className='tpcolor'> No Privacy Policy </span>. </span>
+                    </div>
+                    <div className='redirectsignin'>
+                        Already a Snipstr member? <span className='linkmember' onClick={login}> Log in here</span>
+                    </div>
+                </form>
+            </div>
+        </div>
     );
 }
 

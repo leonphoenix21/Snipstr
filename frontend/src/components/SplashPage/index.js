@@ -13,16 +13,22 @@ const SplashPage = () => {
     const pics = [
         'https://live.staticflickr.com/65535/51987929062_d2dce274d2_k.jpg', //
         'https://live.staticflickr.com/65535/51993482155_39813c68a6_h.jpg',//
+        'https://live.staticflickr.com/485/19884167574_5a04f376a9_k.jpg',
+        'https://live.staticflickr.com/65535/52225316803_503203d050_6k.jpg',
         'https://live.staticflickr.com/65535/51995149873_eacf06dbcd_h.jpg',//
         'https://live.staticflickr.com/65535/51995045874_9a4720aa5b_h.jpg',//
         'https://live.staticflickr.com/65535/51994907696_4c775b4722_h.jpg',//
-        'https://live.staticflickr.com/65535/51992167665_224056e6a3_3k.jpg'//
+        'https://live.staticflickr.com/65535/51992167665_224056e6a3_3k.jpg',//
+        'https://live.staticflickr.com/65535/51992697234_81ab64a8e6_h.jpg',
+        'https://live.staticflickr.com/8520/29294676141_f78e97ed5c_6k.jpg',
+        'https://live.staticflickr.com/4537/38467313156_9294fc3522_5k.jpg',
     ]
+
 
     useEffect(() => {
         const pictureInterval = setInterval(() => {
-            setNum((prevNum) => (prevNum === 5 ? 0 : prevNum + 1));
-        }, 10000);
+            setNum((prevNum) => (prevNum === 10 ? 0 : prevNum + 1));
+        }, 6000);
         return () => pictureInterval;
     }, []);
 
@@ -41,8 +47,8 @@ const SplashPage = () => {
         <div className='SplashBody'>
             <img src={pics[num]}
                 alt=''
-                className='SplashPageImage'
-                style={{ width: '100%', height: '100%' }}
+                className='SplashPageImg'
+                style={{ width: '105%', height: '103%' }}
             />
             <div className="OverlayText">
                 <div className="HeaderQuote">

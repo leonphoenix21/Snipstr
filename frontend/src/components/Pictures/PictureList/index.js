@@ -18,20 +18,17 @@ const PictureList = () => {
         'https://live.staticflickr.com/65535/51989383731_79940e0b6a_h.jpg',
         'https://live.staticflickr.com/65535/51987929062_d2dce274d2_k.jpg', //
         'https://live.staticflickr.com/65535/51992697234_81ab64a8e6_h.jpg',
-        'https://live.staticflickr.com/65535/51994864440_5d40a38f7b_b.jpg',
-        'https://live.staticflickr.com/65535/51993482155_39813c68a6_h.jpg',//
         'https://live.staticflickr.com/65535/51995149873_eacf06dbcd_h.jpg',//
         'https://live.staticflickr.com/65535/51995045874_9a4720aa5b_h.jpg',//
         'https://live.staticflickr.com/65535/51994907696_4c775b4722_h.jpg',//
-        'https://live.staticflickr.com/65535/51992167665_224056e6a3_3k.jpg',//
-        'https://live.staticflickr.com/65535/51991333792_91d8129cd0_h.jpg'
+        'https://live.staticflickr.com/65535/51992167665_224056e6a3_3k.jpg'//
     ]
 
 
 
     useEffect(() => {
         const pictureInterval = setInterval(() => {
-            setNum((prevNum) => (prevNum === 9 ? 0 : prevNum + 1));
+            setNum((prevNum) => (prevNum === 6 ? 0 : prevNum + 1));
         }, 5000);
         return () => pictureInterval;
     }, []);

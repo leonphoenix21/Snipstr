@@ -8,12 +8,6 @@ li {
     padding: 5px;
 }
 
-body {
-    /* background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Grey_icon.svg/1024px-Grey_icon.svg.png); */
-    background-size: cover;
-    background-position: center;
-    font-family: sans-serif;
-}
 
 .profile-dropdown {
     position: relative;

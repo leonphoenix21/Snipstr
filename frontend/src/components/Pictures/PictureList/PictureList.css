@@ -14,13 +14,12 @@
     --column-width: 33%;
     -moz-column-width: 33%;
     --column-width: 33%;
-    padding: 0 12px;
-
+    /* padding: 0 5px; */
+    /* border: blue solid 5px; */
+    margin: 2.5% 9%;
 }
 
 
-
-.backImg {}
 
 .pics {
     -webkit-transiton: all 350ms ease;
@@ -47,12 +46,17 @@
     padding: 20px;
 }
 
-#pictureH1 {
-    font-size: 2em;
-    padding-top: 30px;
-    padding-bottom: 15px;
-    font-weight: bold;
-    font-family: 'Quicksand', sans-serif;
+.pictureH1 {
+    color: #000;
+    display: flex;
+    font-size: 24px;
+    font-weight: 100;
+    /* border: red solid 1px; */
+    /* margin: 4.6% 0 -4.5% 9.75%; */
+    margin-left: 9.56%;
+    margin-bottom: -1.5%;
+    margin-top: 2%;
+    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
 }
 
 .image-overlay {

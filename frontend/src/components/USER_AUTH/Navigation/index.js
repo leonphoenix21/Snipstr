@@ -67,7 +67,6 @@ function Navigation({ isLoaded }) {
                     <span className='logoName' > Snipstr </span>
                 </div>
 
-                <NavLink className='navlinks' exact to="/home">Explore</NavLink>
                 <NavLink className='upCloud' exact to="/pictures"> < FaCloud className='maincloud' /> <ImArrowUp className='mainarrcloud' /> </NavLink>
 
 

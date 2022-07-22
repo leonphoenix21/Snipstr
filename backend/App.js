@@ -54,9 +54,6 @@ app.use(routes);
 
 
 
-
-
-
 // Error valdiation handlers
 app.use((_req, _res, next) => {
     const err = new Error("The requested resource couldn't be found.");

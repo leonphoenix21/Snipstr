@@ -52,6 +52,11 @@ router.get(
     }
 );
 
+router.get('/all/', asyncHandler(async (_req, res) => {
+    const users = await User.findAll();
+    res.json(users);
+}));
+
 const validateLogin = [
     check('credential')
         .exists({ checkFalsy: true })

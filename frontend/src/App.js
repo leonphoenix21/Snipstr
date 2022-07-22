@@ -51,7 +51,7 @@ function App() {
               <SplashPage />
             </Route>
           }
-          {sessionUser ? <Route exact path={'/home'}>
+          {sessionUser ? <Route exact path={['/home', '/']} >
             <PictureList />
           </Route> : <Route path={'/'}>
             <SplashPage />

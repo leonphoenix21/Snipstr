@@ -38,3 +38,13 @@ h2 {
 #imgNavlink {
     padding-top: 50px;
 }
+
+.singlePicBody {
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(27, 25, 25);
+}

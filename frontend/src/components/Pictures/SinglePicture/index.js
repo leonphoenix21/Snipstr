@@ -51,6 +51,7 @@ const SinglePicture = () => {
                 <div>{singlePicture?.name}</div>
             </div> */}
             <EditPictureForm />
+
         </div>
     )
 

@@ -60,8 +60,8 @@ function App() {
             <UserPictureList />
           </Route>
           <Route path='/picture/:id'>
-            <SinglePicture user={sessionUser} />
-            <EditPictureForm user={sessionUser} />
+            <SinglePicture />
+            {/* <EditPictureForm user={sessionUser} /> */}
           </Route>
           <Route path='/albumlist'>
             <ViewAlbumList user={sessionUser} />

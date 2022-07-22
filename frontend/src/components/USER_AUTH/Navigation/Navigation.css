@@ -233,7 +233,7 @@
 }
 
 .searchInputSession {
-    height: 36px;
+    height: 34px;
     width: 100%;
     border-top: #b7b7b7bb solid .1px;
     border-left: #b7b7b7bb solid .1px;
@@ -279,8 +279,19 @@
 
 .upCloud {
     position: absolute;
-    right: 250px;
+    right: 230px;
     margin-top: -18px;
+}
+
+.profile {
+    position: absolute;
+    /* border: red solid 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    right: 160px;
+    margin-top: 5px;
 }
 
 .maincloud {
@@ -312,10 +323,11 @@
     border-radius: 2px;
     /* color: #065fd4db; */
     color: black;
-    margin-top: 10px;
-    right: 2px;
+    margin-top: 20px;
+    right: -14px;
     top: 20px;
     width: 300px;
+    z-index: -1;
 }
 
 
@@ -397,9 +409,7 @@
 }
 
 .userProfileUploadIcon {
-    position: absolute;
-    right: 17px;
-    margin-top: -15px;
+
     font-size: 28px;
     cursor: pointer;
     color: white;

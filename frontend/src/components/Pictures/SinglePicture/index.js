@@ -37,12 +37,15 @@ const SinglePicture = () => {
 
     return (
         <div className='singlePicBody'>
-            <img
-                src={singlePicture?.url}
-                alt={singlePicture?.name}
-                height='80%'
-                id='imgsingle'
-            />
+
+            <div className='singlePicBcgrnd'>
+                <img
+                    src={singlePicture?.url}
+                    alt={singlePicture?.name}
+                    height='80%'
+                    id='imgsingle'
+                />
+            </div>
             {/* <div className="picInfoContainer">
                 <h2>{singlePicture?.name} </h2>
                 <div>{singlePicture?.name}</div>

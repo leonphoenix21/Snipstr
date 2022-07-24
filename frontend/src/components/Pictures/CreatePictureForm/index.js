@@ -62,29 +62,49 @@ const UploadImage = ({ user }) => {
 
     }
 
+    const isImage = (url) => {
+        if (!url) return 'https://www.preview.ph/preview-2.jpg';
+        else if (/\.(png|jpg|jpeg|gif|jfif|.webp|apng|avif|pjpeg|pjp|svg|bmp|ico|tiff|)$/.test(url)) {
+            return url
+        } else {
+            return 'https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg'
+        }
+    }
+
+
+    const previewUrl = 'https://www.preview.ph/preview-2.jpg';
+
+
     return (
         <div className='container'>
+            <h2 className='uploadHeader'>Upload to Snipstrs</h2>
             <div className='picture-box'>
                 <div className='left'>
+                    <img src={url ? `${url}` : previewUrl} alt='' width='100%'
+                        onError={(e) =>
+                            e.target.src =
+                            ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')} />
 
                 </div>
                 <div className='right'>
-                    <h2>upload</h2>
                     <form onSubmit={handleSubmit} id='createPictureForm'>
+                        <label className="urlLabel">  title </label>
+
                         <input
                             className='field'
                             type='text'
                             onChange={(e) => setName(e.target.value)}
                             value={name}
-                            placeholder='Title'
+                            placeholder='title'
                             name='name'
                             required
                         />
+                        <label className="urlLabel">  image url </label>
                         <input
                             className='field'
                             value={url}
                             onChange={(e) => setUrl(e.target.value)}
-                            placeholder='Image URL'
+                            placeholder='image URL'
                             name='url'
                             required
                         />
@@ -92,7 +112,7 @@ const UploadImage = ({ user }) => {
                             onChange={(e) => setAlbum_id(e.target.value)}
 
                         >
-                            <option style={{ display: 'block' }} value='null'>Select Album Here</option>
+                            <option style={{ display: 'block' }} value='null'>Select Album </option>
                             {albumArr?.map(album => (
                                 <option value={album.id}
                                 >{album.name}</option>

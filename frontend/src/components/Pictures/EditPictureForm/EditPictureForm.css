@@ -16,16 +16,6 @@
     border-radius: 5px;
 }
 
-#EditHeading {
-    color: #000;
-    display: flex;
-    font-size: 30px;
-    font-weight: 100;
-    /* border: red solid 1px; */
-    /* margin: 4.6% 0 -4.5% 9.75%; */
-    margin-bottom: 5px;
-    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
-}
 
 #btnfield {
     padding: 10px;
@@ -47,6 +37,7 @@
 .editOpenIcon {
     font-size: 22px;
     color: whitesmoke;
+    cursor: pointer;
 }
 
 .editCloseIcon {

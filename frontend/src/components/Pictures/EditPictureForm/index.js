@@ -154,17 +154,17 @@ const EditPictureForm = () => {
 
                             <span onClick={closeModal} className='editCloseIcon' >< AiOutlineCloseCircle /></span>
 
-                            <h6 id='EditHeading'> Edit Picture Details </h6>
+                            <h2 > Edit Picture Details </h2>
 
                             <div className="previewImg">
-                                <img src={`${isImage(url)}`} alt="" height={220} width={380}
+                                <img src={`${url}`} alt="" height={220} width={380}
                                     onError={(e) =>
                                         e.target.src =
                                         ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')}
                                 />
                             </div>
                             <div className="fieldDiv">
-                                <label> Title </label>
+                                <label> title </label>
                                 <input
                                     className='field'
                                     id='nameInput'
@@ -177,7 +177,7 @@ const EditPictureForm = () => {
                                 />
                             </div>
                             <div className="fieldDiv">
-                                <label>Image Url</label>
+                                <label>image Url</label>
                                 <input
                                     className='field'
                                     type='text'

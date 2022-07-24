@@ -30,7 +30,7 @@ const UserPictureList = () => {
                     style={{ width: '100%' }}
                 />
             </div> */}
-            <h1 id='pictureH1'> Camera Roll </h1>
+            <h1 className='pictureH1'> Camera Roll </h1>
             <div className='gallery' >
                 {UserPictures.map(picture => (
                     <>

@@ -1,9 +1,11 @@
 .EditPictureForm {
-    padding-top: 35px;
+    position: absolute;
+    margin-left: -800px;
+    margin-top: -400px;
     padding: 30px;
     max-width: 850px;
-    width: 70%;
-    height: 70%;
+    width: 420px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -29,16 +31,20 @@
     transition: .3s;
 }
 
-.setShowButton {
-    height: 40px;
-    width: fit-content;
-    color: #fff;
-    background-color: blue;
-    margin: 10px 0 10px 20px;
-    padding: 10px 40px 5px 40px;
-    border: none;
-    border-radius: 50px;
-    font-size: 17px;
+
+
+.editOpenIcon {
+    font-size: 22px;
+    color: whitesmoke;
+}
+
+.editCloseIcon {
+    font-size: 22px;
+    color: black;
+    /* position: absolute; */
+    margin-left: 330px;
+    cursor: pointer;
+    /* border: red solid 1px; */
 }
 
 .btns {

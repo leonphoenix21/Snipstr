@@ -1,22 +1,22 @@
+import React from 'react';
+import Modal from 'react-modal';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPictures } from '../../../store/pictureReducer';
 import EditPictureForm from '../EditPictureForm';
 import { useEffect, useState } from 'react';
 
-
 import './SinglePicture.css';
-import React from 'react';
 
 
 
 
 const SinglePicture = () => {
-    // console.log("aaaaa", user)
+
+
     const [users, setUsers] = useState([])
     const dispatch = useDispatch();
     const pictures = useSelector(state => state.picture.list)
-    // console.log("aaaaa", pictures)
     useEffect(() => {
         dispatch(getPictures());
     }, [dispatch]);
@@ -32,8 +32,42 @@ const SinglePicture = () => {
         fetchData();
     }, [dispatch]);
 
-    // const findUser = users?.filter(currUser => currUser?.id === +id);
-    // const user = findUser[0]
+    const findUser = users?.filter(currUser => currUser?.id === +singlePicture?.user_id);
+    const user = findUser[0]
+
+
+    Modal.ariaHideApp = false
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            display: 'flex',
+            flexDirection: 'row'
+
+        },
+    };
+
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = 'black';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
 
     return (
         <div className='singlePicBody'>
@@ -45,12 +79,13 @@ const SinglePicture = () => {
                     height='80%'
                     id='imgsingle'
                 />
+
+                <div className='editFormSingleDiv' ><EditPictureForm /></div>
             </div>
-            {/* <div className="picInfoContainer">
+            <div className="picInfoContainer">
                 <h2>{singlePicture?.name} </h2>
-                <div>{singlePicture?.name}</div>
-            </div> */}
-            <EditPictureForm />
+                <div>{user?.username}</div>
+            </div>
 
         </div>
     )

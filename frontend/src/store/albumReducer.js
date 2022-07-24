@@ -34,7 +34,6 @@ export const createAlbum = (data) => async (dispatch) => {
 
     if (response.ok) {
         const album = await response.json();
-        console.log('album', album)
         dispatch(addAlbum(album))
         return (album)
     }
@@ -56,7 +55,6 @@ export const editAlbums = (data) => async (dispatch) => {
         method: 'PUT',
         body: JSON.stringify(data)
     });
-    console.log("response", response.body)
     if (response.ok) {
         const album = await response.json();
         dispatch(editAlbum(album));

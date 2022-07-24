@@ -1,3 +1,8 @@
+.singlePicBody {
+    height: fit-content;
+    width: auto;
+}
+
 #imgDiv {
     padding: 10px;
     padding-top: 10px;
@@ -39,7 +44,7 @@ h2 {
     padding-top: 50px;
 }
 
-.singlePicBody {}
+
 
 .singlePicBcgrnd {
     height: 85vh;
@@ -49,4 +54,12 @@ h2 {
     justify-content: center;
     align-items: center;
     background-color: rgb(27, 25, 25);
+    position: relative;
+}
+
+.editFormSingleDiv {
+    /* border: red solid 1px; */
+    position: absolute;
+    bottom: 10px;
+    right: 170px;
 }

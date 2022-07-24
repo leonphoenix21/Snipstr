@@ -26,7 +26,6 @@ function Navigation({ isLoaded }) {
         }
     };
 
-    console.log(pictures, 'LLKLKLKLKL')
 
     const Results = pictures?.filter(picture => {
         if (searchInput.length === 1) {
@@ -45,7 +44,6 @@ function Navigation({ isLoaded }) {
         // return 'no results'
     })
 
-    console.log(Results, 'LLKLKLKLKL')
 
 
 

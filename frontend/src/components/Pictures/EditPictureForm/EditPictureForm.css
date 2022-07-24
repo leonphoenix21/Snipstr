@@ -16,6 +16,17 @@
     border-radius: 5px;
 }
 
+#EditHeading {
+    color: #000;
+    display: flex;
+    font-size: 30px;
+    font-weight: 100;
+    /* border: red solid 1px; */
+    /* margin: 4.6% 0 -4.5% 9.75%; */
+    margin-bottom: 5px;
+    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+}
+
 #btnfield {
     padding: 10px;
 }
@@ -39,10 +50,10 @@
 }
 
 .editCloseIcon {
-    font-size: 22px;
+    font-size: 30px;
     color: black;
     /* position: absolute; */
-    margin-left: 330px;
+    margin-left: 90%;
     cursor: pointer;
     /* border: red solid 1px; */
 }
@@ -52,9 +63,16 @@
     width: fit-content;
     color: #fff;
     background-color: blue;
-    margin: 10px 0 10px 20px;
     padding: 10px 40px 5px 40px;
+    margin-bottom: 25px;
+    margin-left: 10px;
     border: none;
     border-radius: 50px;
     font-size: 17px;
+}
+
+.previewImg {
+    height: 220px;
+    width: 380px;
+    margin-bottom: 10px;
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Modal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { editPicture, deletePicture } from '../../../store/pictureReducer';
 import { useHistory, useParams } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { getAlbums } from '../../../store/albumReducer';
 import './EditPictureForm.css';
 import { FiEdit } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
+import React from 'react';
 
 
 const EditPictureForm = () => {
@@ -55,7 +57,7 @@ const EditPictureForm = () => {
         }
         history.push('/home')
         const pictures = await dispatch(editPicture(payload));
-        if (pictures) {
+        if (!pictures.errors) {
             reset()
         }
     }
@@ -69,6 +71,42 @@ const EditPictureForm = () => {
         await dispatch(deletePicture(payload.id));
         reset();
 
+    }
+
+
+    Modal.ariaHideApp = false
+
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            display: 'flex',
+            flexDirection: 'row',
+            height: '500px',
+            width: '420px'
+
+        },
+    };
+
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = 'black';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
     }
 
 
@@ -87,86 +125,101 @@ const EditPictureForm = () => {
         setShowEdit(false)
     }
 
+    const isImage = (url) => {
+        if (!url) return 'https://www.preview.ph/preview-2.jpg';
+        else if (/\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url)) {
+            return url
+        } else {
+            return 'https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg'
+        }
+    }
+
 
     return (
         <>
 
             {verify[0] ?
                 <>
-                    <a href='#EditHeading'>
-                        < FiEdit onClick={() => showButton()} className='editOpenIcon' />
-                    </a>
+                    < FiEdit onClick={openModal} className='editOpenIcon' />
 
-                    {
-                        showEdit &&
-                        <>
-                            <div id='EditPictureDiv' className='EditPictureForm'>
-                                <div>
-                                    <form onSubmit={handleSubmit} >
+                    <Modal
+                        isOpen={modalIsOpen}
+                        onAfterOpen={afterOpenModal}
+                        onRequestClose={closeModal}
+                        style={customStyles}
+                        contentLabel="EditUser"
+                    >
 
-                                        <span onClick={() => closeButton()} className='editCloseIcon' >< AiOutlineCloseCircle /></span>
+                        <form onSubmit={handleSubmit} >
 
-                                        <h2 id='EditHeading'> Edit  </h2>
-                                        <input
-                                            className='field'
-                                            id='nameInput'
-                                            type='text'
-                                            onChange={(e) => setName(e.target.value)}
-                                            value={name}
-                                            // placeholder='rename here... '
-                                            name='name'
-                                            required
-                                        />
-                                        <input
-                                            className='field'
-                                            type='text'
-                                            value={url}
-                                            onChange={(e) => setUrl(e.target.value)}
-                                            // placeholder='change image url here...'
-                                            name='url'
-                                            required
-                                        />
-                                        <select
-                                            onChange={(e) => setAlbum_id(e.target.value)}
-                                            className='field'
-                                        >
-                                            <option style={{ display: 'block' }} value='null' > add to album </option>
-                                            {albumArr?.map(album => (
-                                                <option value={album.id}
-                                                    key={album.id}
-                                                >
-                                                    {album.name}
-                                                </option>
+                            <span onClick={closeModal} className='editCloseIcon' >< AiOutlineCloseCircle /></span>
 
-                                            ))}
-                                        </select>
-                                        <button
-                                            className='btns'
-                                            onClick={(e) => (
-                                                setUser_id(sessionUser.id)
-                                            )}
-                                            type='submit'
-                                        >
-                                            Submit
-                                        </button>
-                                        <button
-                                            onClick={DeleteSubmit}
-                                            className='btns'
-                                            type='submit'>
-                                            Delete
-                                        </button>
-                                    </form>
-                                    {/* <form onSubmit={DeleteSubmit} id='deletePictureForm'>
-                                        <button
-                                            className='btns'
-                                            type='submit'>
-                                            Delete
-                                        </button>
-                                    </form> */}
-                                </div>
+                            <h6 id='EditHeading'> Edit Picture Details </h6>
+
+                            <div className="previewImg">
+                                <img src={`${isImage(url)}`} alt="" height={220} width={380}
+                                    onError={(e) =>
+                                        e.target.src =
+                                        ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')}
+                                />
                             </div>
-                        </>
-                    }
+                            <div className="fieldDiv">
+                                <label> Title </label>
+                                <input
+                                    className='field'
+                                    id='nameInput'
+                                    type='text'
+                                    onChange={(e) => setName(e.target.value)}
+                                    value={name}
+                                    // placeholder='rename here... '
+                                    name='name'
+                                    required
+                                />
+                            </div>
+                            <div className="fieldDiv">
+                                <label>Image Url</label>
+                                <input
+                                    className='field'
+                                    type='text'
+                                    value={url}
+                                    onChange={(e) => setUrl(e.target.value)}
+                                    // placeholder='change image url here...'
+                                    name='url'
+                                    required
+                                />
+                            </div>
+                            <select
+                                onChange={(e) => setAlbum_id(e.target.value)}
+                                className='field'
+                            >
+                                <option style={{ display: 'block' }} value='null' > add to album </option>
+                                {albumArr?.map(album => (
+                                    <option value={album.id}
+                                        key={album.id}
+                                    >
+                                        {album.name}
+                                    </option>
+
+                                ))}
+                            </select>
+                            <button
+                                className='btns'
+                                style={{ marginLeft: '55px' }}
+                                onClick={(e) => (
+                                    setUser_id(sessionUser.id)
+                                )}
+                                type='submit'
+                            >
+                                Submit
+                            </button>
+                            <button
+                                onClick={DeleteSubmit}
+                                className='btns'
+                                type='button'>
+                                Delete
+                            </button>
+                        </form>
+                    </Modal>
                 </>
                 :
                 null

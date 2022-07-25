@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createAlbum } from '../../../store/albumReducer';
@@ -32,12 +33,22 @@ const CreateAlbumForm = ({ user }) => {
         setUser_id('');
         history.push('/albumlist')
     };
+
+    const previewUrl = 'https://www.preview.ph/preview-2.jpg';
+
     return (
         <div className='albumcontainer'>
+            <h2 className='createAlbumh2'>Create A New Album</h2>
             <div className='albumpicture-box'>
-                <div>
-                    <h2>new album</h2>
+                <div className="leftAlbum">
+                    <img src={url ? `${url}` : previewUrl} alt='' width='100%'
+                        onError={(e) =>
+                            e.target.src =
+                            ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')} />
+                </div>
+                <div className='right'>
                     <form onSubmit={handleSubmit} className='createAlbumForm'>
+                        <label className="urlLabel"> Album Name</label>
                         <input
                             className='field'
                             type='text'
@@ -47,6 +58,9 @@ const CreateAlbumForm = ({ user }) => {
                             name='name'
                             required
                         />
+
+                        <label className="urlLabel"> Album Image Url</label>
+
                         <input
                             className='field'
                             type='text'

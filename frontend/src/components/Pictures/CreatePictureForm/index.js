@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createPicture } from '../../../store/pictureReducer';
 import { useHistory } from 'react-router-dom';
 import { getAlbums } from '../../../store/albumReducer';
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
 // import Select from 'react-select';
 

@@ -16,8 +16,11 @@
     align-items: center;
     padding: 30px 50px 120px;
     height: 90vh;
+}
 
-
+.createAlbumh2 {
+    position: absolute;
+    top: 5%;
 }
 
 .albumcontainer:after {
@@ -27,7 +30,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background: url("https://wallpaper.dog/large/10882182.jpg") no-repeat center;
+    /* background: url("https://wallpaper.dog/large/10882182.jpg") no-repeat center; */
     background-size: cover;
     filter: blur(50px);
     z-index: -1;
@@ -35,19 +38,18 @@
 }
 
 .albumpicture-box {
-    padding-top: 35px;
-    padding: 30px;
     max-width: 850px;
-    width: 70%;
-    height: 70%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: flex-start;
     align-items: center;
     text-align: center;
+    height: fit-content;
     background-color: #fff;
-    box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
+    box-shadow: .1px .1px .1px .3px rgba(0, 0, 0, 0.19);
+    border-radius: 3px;
+    margin-top: 200px;
+
 }
 
 
@@ -111,6 +113,24 @@ textarea {
 .field:focus {
     border: 2px solid rgba(30, 85, 250, 0.47);
     background-color: #fff;
+}
+
+.createAlbumh2 {
+    margin-bottom: 15px;
+}
+
+.leftAlbum {
+    /* border: red solid 1px; */
+    background-size: cover;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px;
+    margin-left: 0;
 }
 
 @media screen and (max-width: 880px) {

@@ -69,6 +69,8 @@ const SinglePicture = () => {
     }
 
 
+
+
     return (
         <div className='singlePicBody'>
 
@@ -82,9 +84,18 @@ const SinglePicture = () => {
 
                 <div className='editFormSingleDiv' ><EditPictureForm /></div>
             </div>
+
             <div className="picInfoContainer">
-                <h2>{singlePicture?.name} </h2>
-                <div>{user?.username}</div>
+                <img src='https://static.thenounproject.com/png/35491-200.png'
+                    height={50}
+                    width={50}
+
+                    alt=''
+                    className='userIconImg' />
+                <div className="Infopic">
+                    <div className='usernameInfo'>{user?.username}</div>
+                    <div className='singlePicName'>{singlePicture?.name} </div>
+                </div>
             </div>
 
         </div>

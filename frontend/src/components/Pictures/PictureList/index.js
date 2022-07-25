@@ -6,13 +6,24 @@ import { getPictures } from '../../../store/pictureReducer';
 import './PictureList.css';
 
 const PictureList = () => {
+
+
+    const [users, setUsers] = useState([])
     const history = useHistory();
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const pictures = useSelector(state => state.picture.list);
     const [num, setNum] = useState(0);
 
-
+    //Querrying for users and finding the user who uploaded this picture
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('/api/users/all');
+            const responseData = await response.json();
+            setUsers(responseData);
+        }
+        fetchData();
+    }, [dispatch]);
 
     const navLink = (id) => {
         history.push(`/picture/${id}`)
@@ -21,6 +32,15 @@ const PictureList = () => {
     useEffect(() => {
         dispatch(getPictures());
     }, [dispatch]);
+
+    const PicUserName = (id) => {
+        const userName = users.filter(user => {
+            if (user.id === +id) {
+                return user.username
+            }
+        })
+        return `${userName[0]?.username}`
+    }
 
     return (
         <>
@@ -41,7 +61,8 @@ const PictureList = () => {
                                 onClick={() => navLink(picture.id)}
                             >
                                 <div className='insideOverlay'>
-                                    <div className='image-title'>{picture.name}  </div>
+                                    <div className='imageTitle'>{picture.name}  </div>
+                                    <div className='imageName'>  by <span style={{ textTransform: 'capitalize' }}>{PicUserName(picture.user_id)}</span>  </div>
                                 </div>
                             </div>
                         </div>

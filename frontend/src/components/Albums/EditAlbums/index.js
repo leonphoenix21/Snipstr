@@ -24,7 +24,6 @@ const EditAlbumForm = ({ user }) => {
     const { id } = useParams();
     const albums = useSelector(state => state.album.list);
     const album = albums.filter(album => album.id === +id)
-    console.log('JHGFF', album)
     const [name, setName] = useState(album[0]?.name);
     const [ShowConfirm, setShowConfirm] = useState(false);
     const [users, setUsers] = useState([])

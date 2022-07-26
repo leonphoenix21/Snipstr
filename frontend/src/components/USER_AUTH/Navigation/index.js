@@ -59,7 +59,7 @@ function Navigation({ isLoaded }) {
         <>
             <nav className='sessionNavbar'>
 
-                <div className='sessionLogoDots' onClick={gotohome}>
+                <div className='sessionLogoDots opHov' onClick={gotohome}>
                     <BsDot className='redDot' />
                     <BsDot className='blueDot' />
                     <span className='logoName' > Snipstr </span>
@@ -124,15 +124,15 @@ function Navigation({ isLoaded }) {
             {!sessionUser ?
                 <nav className='navbar'>
 
-                    <div className='logoDots' onClick={splashpage}>
+                    <div className='logoDots opHov' onClick={splashpage}>
                         <BsDot className='redDot' />
                         <BsDot className='blueDot' />
                         <span className='logoName' > Snipstr </span>
                     </div>
 
                     <div className="NavBarBtnsDiv">
-                        <button className='loginNavBtn' onClick={login} >Log In</button>
-                        <button className='signupNavBtn' onClick={signup} > Sign Up</button>
+                        <button className='loginNavBtn opHov' onClick={login} >Log In</button>
+                        <button className='signupNavBtn opHov' onClick={signup} > Sign Up</button>
                     </div>
 
                     <div className="searchBarDiv">

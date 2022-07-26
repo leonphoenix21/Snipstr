@@ -18,7 +18,6 @@ const EditPictureForm = () => {
     const history = useHistory();
     const pictures = useSelector(state => state.picture.list)
     const picture = pictures.filter(pic => pic?.id === +id)
-    console.log('kdsklskd', picture)
     const albums = useSelector(state => state.album.list);
     const sessionUser = useSelector(state => state.session.user);
     const [name, setName] = useState(picture[0]?.name);

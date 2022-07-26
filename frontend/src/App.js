@@ -16,6 +16,7 @@ import AlbumPictures from "./components/Albums/AlbumPictures";
 import UserPictureList from "./components/Pictures/UserPictures";
 import SplashPage from "./components/SplashPage";
 import { getPictures } from "./store/pictureReducer";
+import { getAlbums } from "./store/albumReducer";
 
 
 
@@ -27,7 +28,7 @@ function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    dispatch(sessionActions.restoreUser()).then(() => (setIsLoaded(true), getPictures()));
+    dispatch(sessionActions.restoreUser()).then(() => (setIsLoaded(true), getPictures(), getAlbums()));
   }, [dispatch]);
 
   const sessionUser = useSelector(state => state.session.user);

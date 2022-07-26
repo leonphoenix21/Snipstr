@@ -1,11 +1,32 @@
 .albumgallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5px;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 2.5% 9%;
+
 }
+
+.picsAlbum {
+    -webkit-transiton: all 350ms ease;
+    transition: all 350ms ease;
+    cursor: pointer;
+    /* margin-bottom: 12px; */
+    position: relative;
+    width: 250px;
+    height: 320px;
+}
+
 
 .image-created {
     font-size: 1.5em;
     padding-left: 150px;
     margin-top: .77em;
+}
+
+.albumTitle {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 1;
+    font-size: 25px;
+    color: whitesmoke;
 }

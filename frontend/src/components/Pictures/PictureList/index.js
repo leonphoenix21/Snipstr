@@ -55,7 +55,7 @@ const PictureList = () => {
                                 placeholder={picture.name}
                                 src={picture.url}
                                 alt={picture.name}
-                                style={{ width: '102%' }}
+                                style={{ width: '102.6%' }}
                             />
                             <div className='image-overlay'
                                 onClick={() => navLink(picture.id)}

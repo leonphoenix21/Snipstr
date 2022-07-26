@@ -1,9 +1,17 @@
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editAlbums, deleteAlbums } from '../../../store/albumReducer';
 import { getAlbums } from '../../../store/albumReducer';
 import { useHistory, useParams } from 'react-router-dom';
-import './EditAlbum.css'
+import { MdDeleteForever } from 'react-icons/md';
+import { BsArrowLeft } from 'react-icons/bs';
+
+import Modal from 'react-modal';
+import './EditAlbum.css';
+
+
+
 const EditAlbumForm = ({ user }) => {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -54,52 +62,105 @@ const EditAlbumForm = ({ user }) => {
         history.push('/home')
     };
 
+
+
+    Modal.ariaHideApp = false
+
+
+    const customStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            display: 'flex',
+            flexDirection: 'row',
+            height: '500px',
+            width: '420px'
+
+        },
+    };
+
+    let subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        subtitle.style.color = 'black';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+
+    const backToAlbums = () => {
+        history.push('/albumlist')
+    }
+
+
+
     return (
-        <div className='editalbumcontainer'>
-            <div className='album-box'>
-                <div>
+        <>
+            <div className="backToHome">
+                <span onClick={backToAlbums} className='backToHomSpan'> <BsArrowLeft className='backArrow' /> Back To Albums</span>
+            </div>
+            <div className='editalbumcontainer'>
+                <div className='album-box'>
+                    <div>
 
-                    <h2 className='h2class'>edit</h2>
-                    <form onSubmit={handleSubmit} className='createAlbumForm'>
-                        <input
-                            className='field'
-                            type='text'
-                            onChange={(e) => setName(e.target.value)}
-                            value={name}
-                            placeholder='rename'
-                            name='name'
-                            required
-                        />
-                        <input
-                            className='field'
-                            type='text'
-                            value={url}
-                            onChange={(e) => setUrl(e.target.value)}
-                            placeholder='change image url'
-                            name='url'
-                            required
-                        />
+                        <h2 className='h2class'>edit</h2>
+                        <form onSubmit={handleSubmit} className='createAlbumForm'>
+                            <input
+                                className='field'
+                                type='text'
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}
+                                placeholder='rename'
+                                name='name'
+                                required
+                            />
+                            <input
+                                className='field'
+                                type='text'
+                                value={url}
+                                onChange={(e) => setUrl(e.target.value)}
+                                placeholder='change image url'
+                                name='url'
+                                required
+                            />
 
+                            <button
+                                onClick={(e) => (
+                                    setUser_id(user.id)
+                                )}
+                                type='submit'
+                                id='submitAlbumForm'
+                                className='editbtn'>
+                                Submit
+                            </button>
+                            < MdDeleteForever className='deleteIcon' onClick={DeleteSubmit} />
+
+                            <p> Confirm Delete</p>
+                        </form>
+                        {/* <form onSubmit={DeleteSubmit} id='deleteAlbumForm'>
                         <button
-                            onClick={(e) => (
-                                setUser_id(user.id)
-                            )}
-                            type='submit'
-                            id='submitAlbumForm'
-                            className='editbtn'>
-                            Submit
-                        </button>
-                    </form>
-                    <form onSubmit={DeleteSubmit} id='deleteAlbumForm'>
-                        <button
+
                             type='submit'
                             className='editbtn'>
                             Delete
                         </button>
-                    </form>
+                    </form> */}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 
 }

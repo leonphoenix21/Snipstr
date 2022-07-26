@@ -68,6 +68,11 @@
     margin-left: 150px;
 }
 
+.splashBeginBtn:hover {
+    opacity: .9;
+    color: grey;
+}
+
 .devLinksTitle {
     font-size: 14px;
     color: hsla(0, 0%, 100%, .6);

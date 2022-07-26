@@ -34,9 +34,13 @@ const AlbumPictures = () => {
         dispatch(getPictures());
     }, [dispatch]);
 
+
+
+
+
     return (
         <>
-            <h2 className='h3class'> {displayName[0]} </h2>
+            <h6 className='h3class'> {displayName[0]} </h6>
             <div className='gallery' >
                 {albumPictures.map(picture => (
                     <>
@@ -52,8 +56,8 @@ const AlbumPictures = () => {
                                 onClick={() => navLink(picture.id)}
                             >
                                 <div className='insideOverlay'>
-                                    <div className='image-title'>{picture.name}  </div>
-                                    <div className='image-createdAt'> {picture.createdAt.slice(0, 10)}</div>
+                                    <div className='imageTitle'>{picture.name}  </div>
+                                    <div className='imageName' style={{ color: 'white' }}> {picture.createdAt.slice(0, 10)}</div>
                                 </div>
                             </div>
                         </div>

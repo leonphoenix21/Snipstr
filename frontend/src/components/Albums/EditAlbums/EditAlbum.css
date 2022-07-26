@@ -9,14 +9,14 @@
 
 .editalbumcontainer {
     position: relative;
-    width: 100%;
     height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px 50px 120px;
     height: 50vh;
-
+    margin: 0 9.56%;
+    margin-bottom: -1.5%;
 
 }
 
@@ -130,4 +130,33 @@ textarea {
     .left {
         height: 200px;
     }
+}
+
+.deleteIcon {
+    font-size: 25px;
+    color: white;
+}
+
+.backToHome {
+    height: 60px;
+    /* border: red solid 1px; */
+    margin: 0 9.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+}
+
+.backToHomSpan {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.backArrow {
+    font-size: 25px;
+    margin-right: 10px;
 }

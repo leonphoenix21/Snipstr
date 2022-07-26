@@ -12,9 +12,17 @@
 }
 
 .h3class {
-    color: black;
-    font-size: 45px;
-    padding: 10px;
+    color: #000;
+    display: flex;
+    font-size: 24px;
+    font-weight: 100;
+    /* border: red solid 1px; */
+    /* margin: 4.6% 0 -4.5% 9.75%; */
+    margin-left: 9.56%;
+    margin-bottom: -1.5%;
+    margin-top: 2%;
+    font-family: Proxima Nova, helvetica neue, helvetica, arial, sans-serif;
+    text-transform: capitalize;
 }
 
 

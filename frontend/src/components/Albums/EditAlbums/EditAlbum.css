@@ -46,10 +46,17 @@
     padding: 10px 0;
 }
 
+.EditAlbumForm {
+    padding: 10px 0;
+    padding-bottom: 20px;
+}
+
 .EditAlbModalCont {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: fit-content;
+    padding-bottom: 30px;
 }
 
 .albOptionsNav {
@@ -105,6 +112,7 @@
 
 .albUpPrevImg {
     margin-bottom: 15px;
+    object-fit: cover;
 }
 
 .h2class {
@@ -188,6 +196,7 @@ textarea {
     position: absolute;
     right: 30px;
     font-size: 18px;
+    margin-bottom: 30px;
 }
 
 .editbtn:hover {
@@ -381,7 +390,10 @@ textarea {
     align-items: center;
     color: white;
     margin-top: 7px;
+    text-shadow: 0 .5px .5px #000;
 }
+
+
 
 .byUser {
     display: flex;

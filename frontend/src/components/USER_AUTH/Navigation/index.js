@@ -88,7 +88,7 @@ function Navigation({ isLoaded }) {
                                             {Results?.map(picture => (
                                                 <a href={`/picture/${picture.id}/`} style={{ textDecoration: 'none', color: 'black' }}>
                                                     <div className='eachResultDiv'>
-                                                        <img src={picture?.url} alt='' height={20} width={20} />
+                                                        <img src={picture?.url} alt='' height={25} width={25} />
                                                         <span className='eachVidTitle'> {picture.name}</span>
                                                     </div>
                                                 </a>

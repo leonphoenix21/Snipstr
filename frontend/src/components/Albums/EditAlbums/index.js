@@ -187,7 +187,7 @@ const EditAlbumForm = ({ user }) => {
                         <div className="CollOfIdeas">
                             Collection Of Ideas
                         </div>
-                        <div className='picCount' >{picCount()} </div>
+                        <div className='picCount' > {picCount()}</div>
                         <div className='byUser' > {albumUserName[0]}  </div>
 
                         < BiEdit onClick={openModal} className='editAlbumIcon opHov' />
@@ -240,7 +240,7 @@ const EditAlbumForm = ({ user }) => {
                                                     ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')} />
 
 
-                                            <form onSubmit={handleSubmit} className='createAlbumForm'>
+                                            <form onSubmit={handleSubmit} className='EditAlbumForm'>
                                                 <label className="urlLabel"> Album Name</label>
                                                 <input
                                                     className='field'

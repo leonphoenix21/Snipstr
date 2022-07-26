@@ -42,7 +42,7 @@ const ViewAlbumList = () => {
     }, [dispatch]);
     return (
         <>
-            <h2 className='pictureH1'>Albums</h2>
+            <h6 className='pictureH1' style={{ marginLeft: "9%" }}>Albums</h6>
             <div className='albumgallery' >
                 {userAlbums.map(album => (
                     <>

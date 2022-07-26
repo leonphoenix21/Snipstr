@@ -145,12 +145,21 @@
 
 .eachResultDiv {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 2px;
     font-size: 14px;
     text-decoration: none;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    border-bottom: .1px solid rgba(128, 128, 128, 0.231);
 }
 
+.eachVidTitle {
+    margin-left: 5px;
+    text-transform: capitalize;
+}
 
 .signupNavBtn {
 
@@ -255,7 +264,7 @@
     border-top: none;
     border-left: #3030301d solid .1px;
     margin-top: .9px;
-    width: 23%;
+    width: 33%;
 }
 
 .searchInputIconSession {

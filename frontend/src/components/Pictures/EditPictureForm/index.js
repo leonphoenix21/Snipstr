@@ -87,9 +87,8 @@ const EditPictureForm = () => {
             transform: 'translate(-50%, -50%)',
             display: 'flex',
             flexDirection: 'row',
-            height: '650px',
+            height: 'fit-content',
             width: '950px'
-
         },
     };
 

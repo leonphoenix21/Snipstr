@@ -21,7 +21,6 @@ const ViewAlbumList = () => {
     const verify = alb.map(pic => pic.user_id === +sessionUser.id)
     // const pictures = useSelector(state => state.picture.list);
     const picCount = (album_Id) => {
-        console.log(pictures, 'HGFFGHHHGF')
         const albumPictures = pictures.filter(picture => picture.album_id === album_Id)
         if (albumPictures.length === 1) return `${albumPictures.length} photo`
         return `${albumPictures.length} photos`
@@ -53,7 +52,7 @@ const ViewAlbumList = () => {
                                 placeholder={album.name}
                                 src={album.url}
                                 alt={album.name}
-                                style={{ width: '255px', height: '320px' }}
+                                style={{ width: '325px', height: '240px' }}
 
                             />
                             <div className="albumTitle">
@@ -61,7 +60,7 @@ const ViewAlbumList = () => {
                                 <div className='imageName' style={{ marginLeft: '-3px', color: 'white', fontSize: '12px' }}>{picCount(album.id)} </div>
                             </div>
                             <div className='image-overlay'
-                                style={{ width: '250px', height: '320px' }}
+                                style={{ width: '325px', height: '240px' }}
                                 onClick={() => navLink(album.id)}
                             >
                                 <div className='insideOverlay'>

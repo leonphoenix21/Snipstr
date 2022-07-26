@@ -1,6 +1,6 @@
 .albumgallery {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     margin: 2.5% 9%;
 
 }
@@ -11,8 +11,8 @@
     cursor: pointer;
     /* margin-bottom: 12px; */
     position: relative;
-    width: 250px;
-    height: 320px;
+    height: 250px;
+    width: 320px;
 }
 
 

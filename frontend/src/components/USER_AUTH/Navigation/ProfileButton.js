@@ -47,7 +47,7 @@ function ProfileButton({ user }) {
 
         <div className="dropdown">
 
-            <div className='userProfileUploadIcon' onClick={openMenu}> <FaUserCircle /> </div>
+            <div className='userProfileUploadIcon opHov' onClick={openMenu}> <FaUserCircle /> </div>
             {showMenu && (
 
                 <div className="profile-dropdown">

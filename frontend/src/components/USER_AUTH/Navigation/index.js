@@ -65,7 +65,7 @@ function Navigation({ isLoaded }) {
                     <span className='logoName' > Snipstr </span>
                 </div>
 
-                <NavLink className='upCloud' exact to="/pictures"> < FaCloud className='maincloud' /> <ImArrowUp className='mainarrcloud' /> </NavLink>
+                <NavLink className='upCloud opHov' exact to="/pictures"> < FaCloud className='maincloud' /> <ImArrowUp className='mainarrcloud' /> </NavLink>
 
 
                 <div className="sessionSearchBarDiv" >

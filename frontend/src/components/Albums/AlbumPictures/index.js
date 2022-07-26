@@ -20,11 +20,6 @@ const AlbumPictures = () => {
         dispatch(getAlbums());
     }, [dispatch]);
 
-    const displayName = [];
-    const albumName = albums.map(album => {
-        if (album.id === +id) displayName.push(album.name)
-    })
-
 
     const navLink = (id) => {
         history.push(`/picture/${id}`)
@@ -40,8 +35,7 @@ const AlbumPictures = () => {
 
     return (
         <>
-            <h6 className='h3class'> {displayName[0]} </h6>
-            <div className='gallery' >
+            <div className='albgallery' >
                 {albumPictures.map(picture => (
                     <>
                         <div className='pics' key={picture.id} >

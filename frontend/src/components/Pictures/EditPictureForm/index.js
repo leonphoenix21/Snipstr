@@ -87,8 +87,8 @@ const EditPictureForm = () => {
             transform: 'translate(-50%, -50%)',
             display: 'flex',
             flexDirection: 'row',
-            height: '500px',
-            width: '420px'
+            height: '650px',
+            width: '950px'
 
         },
     };
@@ -149,76 +149,80 @@ const EditPictureForm = () => {
                         style={customStyles}
                         contentLabel="EditUser"
                     >
-
-                        <form onSubmit={handleSubmit} >
+                        <div className="EditPictureModal">
 
                             <span onClick={closeModal} className='editCloseIcon' >< AiOutlineCloseCircle /></span>
-
-                            <h2 > Edit Picture Details </h2>
-
-                            <div className="previewImg">
-                                <img src={`${url}`} alt="" height={220} width={380}
-                                    onError={(e) =>
-                                        e.target.src =
-                                        ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')}
-                                />
-                            </div>
-                            <div className="fieldDiv">
-                                <label> title </label>
-                                <input
-                                    className='field'
-                                    id='nameInput'
-                                    type='text'
-                                    onChange={(e) => setName(e.target.value)}
-                                    value={name}
-                                    // placeholder='rename here... '
-                                    name='name'
-                                    required
-                                />
-                            </div>
-                            <div className="fieldDiv">
-                                <label>image Url</label>
-                                <input
-                                    className='field'
-                                    type='text'
-                                    value={url}
-                                    onChange={(e) => setUrl(e.target.value)}
-                                    // placeholder='change image url here...'
-                                    name='url'
-                                    required
-                                />
-                            </div>
-                            <select
-                                onChange={(e) => setAlbum_id(e.target.value)}
-                                className='field'
-                            >
-                                <option style={{ display: 'block' }} value='null' > add to album </option>
-                                {albumArr?.map(album => (
-                                    <option value={album.id}
-                                        key={album.id}
+                            <div className='editPicHeader'> <h2>Edit Picture Details</h2></div>
+                            <form onSubmit={handleSubmit} className='EditPictureForm '>
+                                <div className="previewImg">
+                                    <img src={`${url}`} alt="" width='100%'
+                                        onError={(e) =>
+                                            e.target.src =
+                                            ('https://cdn.wallpapersafari.com/34/82/YRzXPk.jpeg')}
+                                    />
+                                </div>
+                                <div className="secondField">
+                                    <div className="fieldDiv">
+                                        <label className='urlLabel'> Title </label>
+                                        <input
+                                            className='field'
+                                            id='nameInput'
+                                            type='text'
+                                            onChange={(e) => setName(e.target.value)}
+                                            value={name}
+                                            // placeholder='rename here... '
+                                            name='name'
+                                            required
+                                        />
+                                    </div>
+                                    <div className="fieldDiv">
+                                        <label className='urlLabel'>image Url</label>
+                                        <input
+                                            className='field'
+                                            type='text'
+                                            value={url}
+                                            onChange={(e) => setUrl(e.target.value)}
+                                            // placeholder='change image url here...'
+                                            name='url'
+                                            required
+                                        />
+                                    </div>
+                                    <select
+                                        onChange={(e) => setAlbum_id(e.target.value)}
+                                        className='field'
                                     >
-                                        {album.name}
-                                    </option>
+                                        <option style={{ display: 'block' }} value='null' > add to album </option>
+                                        {albumArr?.map(album => (
+                                            <option value={album.id}
+                                                key={album.id}
+                                            >
+                                                {album.name}
+                                            </option>
 
-                                ))}
-                            </select>
-                            <button
-                                className='btns'
-                                style={{ marginLeft: '55px' }}
-                                onClick={(e) => (
-                                    setUser_id(sessionUser.id)
-                                )}
-                                type='submit'
-                            >
-                                Submit
-                            </button>
-                            <button
-                                onClick={DeleteSubmit}
-                                className='btns'
-                                type='button'>
-                                Delete
-                            </button>
-                        </form>
+                                        ))}
+                                    </select>
+                                    <div className="EditPicBtns">
+                                        <button
+                                            className='btns'
+                                            onClick={(e) => (
+                                                setUser_id(sessionUser.id)
+                                            )}
+                                            type='submit'
+                                        >
+                                            Submit
+                                        </button>
+                                        <button
+                                            onClick={DeleteSubmit}
+                                            className='btns'
+                                            type='button'>
+                                            Delete
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
                     </Modal>
                 </>
                 :
